@@ -1,7 +1,6 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import dash_bootstrap_components as dbc
 from dash.dependencies import Output, Input
 import plotly
 import sys
@@ -19,29 +18,15 @@ data = {
         'y3': []
 }
 
-colors = {
-    'background': '#111111',
-    'text': '#7FDBFF'
-}
-
-# external_stylesheets=[dbc.themes.DARKLY]
 app = dash.Dash()
 app.layout = html.Div(children=[
-    html.H1("Nora's great Dashboard"),
-    html.Div(children='This is a child',
-             style={
-                 'textAlign': 'center',
-                 'color': colors['text']}
-             ),
-   # html.Button('Submit', id='button'),
-   # html.Div(id='button-basic',
-     #        children='Click to initialize example plot'),
+    html.H1(""),
     dcc.Graph(id='example'),
     dcc.Interval(
         id='interval-component',
         interval=1 * 4000,  # in milliseconds, not under 3000 ms --> to fast
         n_intervals=0
-    )], style={'width': '75%', 'height':  '50%'}
+    )], style={'width': '90%', 'height':  '70%'}
 )
 
 @app.callback(Output(component_id='example', component_property='figure'),
@@ -81,7 +66,7 @@ def update(step):
             'opacity': 1
         }, 1, 1)
 
-    if data['x'][0] != 0:
+    if data['x'][0] != 0 and data['x'][1] != 1:
         for val in data.values():
             val.pop(0)
 
