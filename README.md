@@ -29,27 +29,12 @@
  $ cd dash.try.live/
  $ activate your virtualenv
  $ pip install -r requirements.txt
- $ brew install spatialindex
 
  #go to Files dir
- $ cd Files/
+ $ cd Main/
 
  #read to run:
- $ python3  ../chaos2countries/run.py
-
- #Optional argument input (if no arguments are defined the program refers to default values)
- $ -ns --> Choose one or more NameServers to visualize by typing -ns followed by wanted nameservers.
-           Format = xy(z), where x is a specific letter and y either 4 or 6 depending on desired IPv.
-           Letters to choose from: a, b
-
-           If one desires to plot a map with both IPv4 and IPv6 use z aswell --> x46 or x64
-           Choose multiple NameServers to plot by typing them all out with a space between each
-           like so: -ns a4 b4 a46
-
- $ -time --> Choose measurements initiation by typing -time followed by desired time-of-initiation
-             format = yyyy-mm-dd hh:mm:ss
-
- $ Default is a4 (which equals to a.ns.se IPv4) at current utc-time.
+ $ python3  render.py
 
   ```
 
@@ -68,7 +53,5 @@
      * This includes information (listed above in 'this program does the following')
        about Ripe-Atlas probes
 
-   * html-file to rendered visualization
+   * However, these files will continuously be deleted, this can be changed in the script
 
-   Each output file will be deleted from the project next time the program is run
-   ie. files in each folder after execution will be those relevant to that exact run.

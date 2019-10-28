@@ -8,9 +8,7 @@ sys.path.append('../')
 from Main.run import main
 import os
 
-
-
-ms =['a', 'b', 'c']
+ms = ['a', 'b', 'c']
 data = {
         'x': [],
         'y1': [],
@@ -25,8 +23,7 @@ app.layout = html.Div(children=[
     dcc.Interval(
         id='interval-component',
         interval=1 * 4000,  # in milliseconds, not under 3000 ms --> to fast
-        n_intervals=0
-    )], style={'width': '90%', 'height':  '70%'}
+        n_intervals=0)], style={'width': '90%', 'height':  '70%'}
 )
 
 @app.callback(Output(component_id='example', component_property='figure'),
@@ -63,7 +60,7 @@ def update(step):
             'hovertext': '',
             'hoverinfo': 'text+y+name',
             'hovertemplate': 'RTT: %{y}',
-            'opacity': 1
+            'opacity': 0.9
         }, 1, 1)
 
     if data['x'][0] != 0 and data['x'][1] != 1:
