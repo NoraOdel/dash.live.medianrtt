@@ -1,4 +1,4 @@
-# dash.try.live
+# dash.live.medianrtt
 
 ## Summary
 
@@ -23,10 +23,10 @@
  ```bash
 
  #Clone the repository
- $ git clone https://github.com/NoraOdel/dash.try.live.git
+ $ git clone https://github.com/NoraOdel/dash.live.medianrtt.git
 
- #Download requirements.txt and spatialindex
- $ cd dash.try.live/
+ #Download requirements.txt
+ $ cd dash.live.medianrtt/
  $ activate your virtualenv
  $ pip install -r requirements.txt
 
