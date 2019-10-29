@@ -53,5 +53,6 @@
      * This includes information (listed above in 'this program does the following')
        about Ripe-Atlas probes
 
-   * However, these files will continuously be deleted, this can be changed in the script
+   * These files will be continuously deleted, this can be changed in the script.
+   * Changing this is NOT recommended since 3 files are created every 4 seconds --> A LOT OF FILES
 

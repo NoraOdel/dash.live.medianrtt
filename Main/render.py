@@ -7,6 +7,7 @@ import sys
 sys.path.append('../')
 from Main.run import main
 import os
+import webbrowser
 
 ms = ['a', 'b', 'c']
 data = {
@@ -23,7 +24,7 @@ app.layout = html.Div(children=[
     dcc.Interval(
         id='interval-component',
         interval=1 * 4000,  # in milliseconds, not under 3000 ms --> to fast
-        n_intervals=0)], style={'width': '90%', 'height':  '70%'}
+        n_intervals=0)]
 )
 
 @app.callback(Output(component_id='example', component_property='figure'),
@@ -31,7 +32,7 @@ app.layout = html.Div(children=[
 def update(step):
 
     rtt_list = main()
-    if len(data['x']) == 100:
+    if len(data['x']) == 1000:
         for val in data.values():
             val.pop(0)
 
@@ -73,6 +74,8 @@ def update(step):
 
     return fig
 
-
 if __name__ == '__main__':
+
+    webbrowser.open_new('http://127.0.0.1:8050/')
     app.run_server(debug=True)
+
