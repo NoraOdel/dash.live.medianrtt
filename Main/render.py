@@ -9,12 +9,11 @@ from Main.run import main
 import os
 import webbrowser
 
-ms = ['a', 'b', 'c']
+ms = ['a', 'b']
 data = {
         'x': [],
         'y1': [],
-        'y2': [],
-        'y3': []
+        'y2': []
 }
 
 app = dash.Dash()
@@ -32,7 +31,7 @@ app.layout = html.Div(children=[
 def update(step):
 
     rtt_list = main()
-    if len(data['x']) == 1000:
+    if len(data['x']) == 500:
         for val in data.values():
             val.pop(0)
 
@@ -73,6 +72,7 @@ def update(step):
             os.remove(file)
 
     return fig
+
 
 if __name__ == '__main__':
 

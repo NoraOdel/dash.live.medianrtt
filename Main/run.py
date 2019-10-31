@@ -7,12 +7,11 @@ from Main.functions import read_ripe_probe_list, read_iso_countries_list, makeat
 
 
 def main():
-    nameserver = ['a4', 'b4', 'c4']
+    nameserver = ['a4', 'b4']
     statsCSV_list = []
     ms_id = {
         'a4': '23033112',
-        'b4': '23033001',
-        'c4': '23090473'}
+        'b4': '23033001'}
 
     start = datetime.utcnow()
     stop = start + timedelta(minutes=10)
