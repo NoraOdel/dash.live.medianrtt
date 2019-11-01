@@ -6,15 +6,13 @@ sys.path.append('../')
 from Main.functions import read_ripe_probe_list, read_iso_countries_list, makeatlas
 
 
-def main():
+def main(start, stop):
     nameserver = ['a4', 'b4']
     statsCSV_list = []
     ms_id = {
         'a4': '23033112',
-        'b4': '23033001'}
-
-    start = datetime.utcnow()
-    stop = start + timedelta(minutes=10)
+        'b4': '23033001',
+        'c4': '23149079'}
 
     ts_start = str(int(datetime.timestamp(start)))
     ts_stop = str(int(datetime.timestamp(stop)))
@@ -76,9 +74,9 @@ def main():
                 rtt_list.append(0)
 
         list_mean_rtt.append(sum(rtt_list)/len(rtt_list))
+    print(list_mean_rtt)
 
     return list_mean_rtt
-
 
 
 

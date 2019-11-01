@@ -8,13 +8,17 @@ sys.path.append('../')
 from Main.run import main
 import os
 import webbrowser
+from datetime import datetime, timedelta
 
-ms = ['a', 'b']
+ms = ['a', 'b', 'c']
 data = {
         'x': [],
+        'datetime': [],
         'y1': [],
-        'y2': []
+        'y2': [],
+        'y3': []
 }
+
 
 app = dash.Dash()
 app.layout = html.Div(children=[
@@ -22,16 +26,19 @@ app.layout = html.Div(children=[
     dcc.Graph(id='example'),
     dcc.Interval(
         id='interval-component',
-        interval=1 * 4000,  # in milliseconds, not under 3000 ms --> to fast
-        n_intervals=0)]
-)
+        interval=1 * 6000,  # in milliseconds, not under 3000 ms --> to fast
+        n_intervals=0)])
 
 @app.callback(Output(component_id='example', component_property='figure'),
               [Input(component_id='interval-component', component_property='n_intervals')])
 def update(step):
 
-    rtt_list = main()
-    if len(data['x']) == 500:
+    start = datetime.utcnow()
+    stop = start + timedelta(minutes=10)
+
+
+    rtt_list = main(start, stop)
+    if len(data['x']) == 300:
         for val in data.values():
             val.pop(0)
 
@@ -42,17 +49,23 @@ def update(step):
             text='Median RTT (in milliseconds) for .se NameServers'
         ),
         showlegend=True,
-        autosize=True
+        autosize=True,
+        xaxis=dict(
+            ticks="outside",
+            tickangle=-45),
+        yaxis=dict(
+            ticks="outside")
     )
 
     data['x'].append(step)
+    data['datetime'].append(str(datetime.now().strftime('%H:%M:%S')))
     print(step)
-    for x in range(1, len(data)):
+    for x in range(1, len(data)-1):
 
         data['y'+str(x)].append(rtt_list[x-1])
         print(rtt_list[x-1])
         fig.append_trace({
-            'x': data['x'],
+            'x': data['datetime'],
             'y': data['y'+str(x)],
             'name': ms[x-1]+'.ns.se IPv4',
             'mode': 'lines',
@@ -62,6 +75,12 @@ def update(step):
             'hovertemplate': 'RTT: %{y}',
             'opacity': 0.9
         }, 1, 1)
+
+    fig.update_yaxes(ticksuffix="ms")
+    fig.update_xaxes(
+        tickmode='auto',
+        nticks=6,
+        dtick=1)
 
     if data['x'][0] != 0 and data['x'][1] != 1:
         for val in data.values():
@@ -75,7 +94,7 @@ def update(step):
 
 
 if __name__ == '__main__':
-
     webbrowser.open_new('http://127.0.0.1:8050/')
     app.run_server(debug=True)
+
 
