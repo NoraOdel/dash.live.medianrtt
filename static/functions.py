@@ -14,40 +14,35 @@ def json_parser(f):
     answers = []
     try:
         measurement = json.loads(f)
-
-        for lines in measurement:
-            try:
-                my_results = DnsResult(lines)
-
-                try:
-                    src_result = my_results.responses[0].source_address
-                    dst_result = my_results.responses[0].destination_address
-                    proto_result = my_results.responses[0].protocol
-                    rtt_result = my_results.responses[0].response_time
-                    abuf = str(my_results.responses[0].abuf)
-                    dnsmsg = dns.message.from_wire(base64.b64decode(abuf))
-                    rcode = dnsmsg.rcode()
-
-                    prb_id = lines['prb_id']
-                    fw = lines['fw']
-                    timestamp = lines['timestamp']
-
-                    answers.append(str(src_result) + ',' + str(dst_result) + ',' + str(proto_result) + ',' +
-                                   str(rtt_result) + ',' + str(prb_id) + ',' + str(rcode) + ',' +
-                                   str(fw) + ',' + str(timestamp))
-
-                except:
-                    # print("ERROR: EMPTY measurement")
-                    # if measurement is empty set every index as empty
-                    answers.append(',' + ',' + ',' + ',' + ',' + ',' + ',' + ',')
-
-            except:
-                print('Error: Measurement is not a DNS measurement')
     except:
-        # print("Unexpected error:", sys.exc_info())
-        # answers=[]
-        # answers.append("ERROR parsing json")
-        pass
+        print("Error loading json")
+
+    for lines in measurement:
+        try:
+            my_results = DnsResult(lines)
+
+        except:
+            print('Error: Measurement is not a DNS measurement')
+
+        try:
+            src_result = my_results.responses[0].source_address
+            dst_result = my_results.responses[0].destination_address
+            proto_result = my_results.responses[0].protocol
+            rtt_result = my_results.responses[0].response_time
+            abuf = str(my_results.responses[0].abuf)
+            dnsmsg = dns.message.from_wire(base64.b64decode(abuf))
+            rcode = dnsmsg.rcode()
+            prb_id = lines['prb_id']
+            fw = lines['fw']
+            timestamp = lines['timestamp']
+
+            answers.append(str(src_result) + ',' + str(dst_result) + ',' + str(proto_result) + ',' +
+                           str(rtt_result) + ',' + str(prb_id) + ',' + str(rcode) + ',' +
+                           str(fw) + ',' + str(timestamp))
+
+        except:
+            print('ERROR: EMPTY measurement \n')
+            answers.append(',' + ',' + ',' + ',' + ',' + ',' + ',')
 
     return answers
 
@@ -60,7 +55,6 @@ def read_probe_data(f, measurementID):
     f.close()
 
     appendDict = dict()
-
     items = json.loads(metadata)
 
     for k in items['objects']:
@@ -77,13 +71,12 @@ def read_iso_countries_list():
     url = "https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv"
     r = requests.get(url)
     print("Download regions code list from :\n" + url)
-    cr = csv.reader(r.content.decode("utf-8").split("\n") )
+    cr = csv.reader(r.content.decode("utf-8").split("\n"))
     countryCode_info = dict()
 
     for row in cr:
         if len(row) > 2:
             countryCode_info[row[1]] = row
-            # print(row)
 
     return countryCode_info
 
@@ -91,34 +84,26 @@ def read_iso_countries_list():
 def read_ripe_probe_list(date, probeFile, geo_data):
 
     url = "https://ftp.ripe.net/ripe/atlas/probes/archive"
-    datebefore = datetime.strptime(date, '%Y%m%d') - timedelta(days=1)
-    datebefore = datetime.strftime(datebefore, '%Y%m%d')
+    date_before = datetime.strftime(datetime.strptime(date, '%Y%m%d') - timedelta(days=1), '%Y%m%d')
 
-    year = datebefore[0:4]
-    month = datebefore[4:6]
-    day = datebefore[6:8]
-
-    datebefore = year+month+day
-    url = url+"/"+year+"/"+month+"/" + datebefore+".json.bz2"
+    datebefore = date_before[0:4]+date_before[4:6]+date_before[6:8]
+    url = url+"/"+date_before[0:4]+"/"+date_before[4:6]+"/" + datebefore+".json.bz2"
 
     print('Downloading ripe database from: \n' + url, '\n')
     r = requests.get(url)
-    decompressed = bz2.decompress(r.content)
-
-    decompressed = decompressed.decode("utf-8")
+    decompressed = (bz2.decompress(r.content)).decode("utf-8")
 
     j = json.loads(decompressed)
-    outz = open(probeFile,'w')
+    outz = open(probeFile, 'w')
 
     tempList = j['objects']
     newDict = j
-    # Creates new dict with
     newDict['objects'] = []
+
     newList = []
     for item in tempList:
         tempCC = item['country_code']
 
-        # some handling of valid fields
         if type(tempCC) is not None and tempCC != "" and str(tempCC) != "None":
             tempStr = geo_data[tempCC]
 
@@ -167,6 +152,7 @@ def makeatlas(atlas_results, url, probeFile, ns):
     return atlas_results
 
 
+"""
 def parse(statsCSV_list):
     rtt_list = []
     for file in statsCSV_list:
@@ -184,3 +170,4 @@ def parse(statsCSV_list):
 
     mean_rtt = sum(rtt_list)/len(rtt_list)
     return mean_rtt, timestamp
+"""

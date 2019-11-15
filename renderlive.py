@@ -3,20 +3,15 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Output, Input
 import plotly
-import sys
-sys.path.append('../')
-from Main.run import main
-import os
 import webbrowser
 from datetime import datetime, timedelta
+from static.run import main
+from static.fix import fixer
 
-ms = ['a', 'b', 'c']
-data = {
+data = {  # the amount of y keys in data should be the same as the amount of keys in ms_id dict
         'x': [],
         'datetime': [],
-        'y1': [],
-        'y2': [],
-        'y3': []
+        'y1': []
 }
 
 
@@ -32,13 +27,14 @@ app.layout = html.Div(children=[
 @app.callback(Output(component_id='example', component_property='figure'),
               [Input(component_id='interval-component', component_property='n_intervals')])
 def update(step):
+    ms_id = {
+        'a.ns.se': '23191329'}  # choose which measurement you'll want to include, and you're DONE!
 
     start = datetime.utcnow()
     stop = start + timedelta(minutes=10)
 
-
-    rtt_list = main(start, stop)
-    if len(data['x']) == 300:
+    rtt_list = main(start, stop, ms_id)
+    if len(data['x']) == 1200:  # when the graph has 1200 coordinates the first one in every list will be removed
         for val in data.values():
             val.pop(0)
 
@@ -60,14 +56,13 @@ def update(step):
     data['x'].append(step)
     data['datetime'].append(str(datetime.now().strftime('%H:%M:%S')))
     print(step)
-    for x in range(1, len(data)-1):
+    for x in range(1, len(ms_id) + 1):
 
         data['y'+str(x)].append(rtt_list[x-1])
-        print(rtt_list[x-1])
         fig.append_trace({
             'x': data['datetime'],
             'y': data['y'+str(x)],
-            'name': ms[x-1]+'.ns.se IPv4',
+            'name': list(ms_id.keys())[x-1],
             'mode': 'lines',
             'type': 'scatter',
             'hovertext': '',
@@ -86,15 +81,13 @@ def update(step):
         for val in data.values():
             val.pop(0)
 
-    for file in os.listdir():
-        if 'atlas-results.csv' in file:
-            os.remove(file)
-
+    fixer()
     return fig
 
 
 if __name__ == '__main__':
     webbrowser.open_new('http://127.0.0.1:8050/')
     app.run_server(debug=True)
+
 
 

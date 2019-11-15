@@ -1,18 +1,11 @@
-import sys
-from datetime import datetime, timedelta
+from datetime import datetime
 import os.path
 import os
-sys.path.append('../')
-from Main.functions import read_ripe_probe_list, read_iso_countries_list, makeatlas
+from static.functions import read_ripe_probe_list, read_iso_countries_list, makeatlas
 
 
-def main(start, stop):
-    nameserver = ['a4', 'b4']
+def main(start, stop, ms_id):
     statsCSV_list = []
-    ms_id = {
-        'a4': '23033112',
-        'b4': '23033001',
-        'c4': '23149079'}
 
     ts_start = str(int(datetime.timestamp(start)))
     ts_stop = str(int(datetime.timestamp(stop)))
@@ -37,10 +30,10 @@ def main(start, stop):
         geo_data = read_iso_countries_list()
         read_ripe_probe_list(date, probeFile, geo_data)
 
-    for ns in nameserver:
+    for ns in ms_id:
         atlas_results = ns + '-' + date + "-" + ts_start + "-" + ts_stop + "-atlas-results.csv"
 
-        if len(ns) == 3:
+        if len(ns) == 3:  # if you would want both ipv4 and ipv6 in the same result file, might need some work
             m_list = [list(ns)[0] + list(ns)[1], list(ns)[0] + list(ns)[-1]]
 
             for m in m_list:
@@ -49,8 +42,7 @@ def main(start, stop):
                 atlas_results = makeatlas(atlas_results, url, probeFile, ns)
 
         else:
-            measurementID = ms_id[ns]
-            url = beginning + measurementID + end
+            url = beginning + ms_id[ns] + end
             atlas_results = makeatlas(atlas_results, url, probeFile, ns)
 
         statsCSV_list.append(atlas_results)
@@ -77,6 +69,7 @@ def main(start, stop):
     print(list_mean_rtt)
 
     return list_mean_rtt
+
 
 
 
