@@ -18,7 +18,7 @@ adresses = [('192.36.144.107', 'a.ns.se'),
             ('185.159.198.150', 'z.ns.se')
             ]
 
-ATLAS_API_KEY = 'OPS'
+ATLAS_API_KEY = 'ops'
 source = AtlasSource(
     tags={'include': [], 'exclude': []},
     type='country',
