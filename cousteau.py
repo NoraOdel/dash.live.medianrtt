@@ -68,8 +68,8 @@ for ip in adresses:
     print(response)
     print(is_success)
 
-
-with open('measurementIDs', 'w') as file:
+date = datetime.utcnow().strftime('%Y%m%d')
+with open('measurementIDs-' + date, 'w') as file:
     for msm in msm_ids:
         file.write(msm[0] + ', ' + msm[1] + '\n')
 file.close()
