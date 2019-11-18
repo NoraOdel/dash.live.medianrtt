@@ -10,9 +10,9 @@
          * probe's subregion
          * probe's firmware version
          * Probe's Coordinates
-      3.1 Renderlive.py plots a live line-graph based on RTTs from result file. The graph is updated every 4 seconds
-      3.2 renderlinegraph.py plots a line-graph based on RTTs from result file. The interval can be change in the code
-      3.3 cousteau.py creates measurements based on our needs along with a file filled with connecting measurementIDs
+      3 Renderlive.py plots a live line-graph based on RTTs from result file. The graph is updated every 4 seconds
+      4 renderlinegraph.py plots a line-graph based on RTTs from result file. The interval can be change in the code
+      5 cousteau.py creates measurements based on our needs along with a file filled with connecting measurementIDs
 
 
 
