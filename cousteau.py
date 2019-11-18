@@ -64,7 +64,7 @@ for ip in adresses:
 
     (is_success, response) = atlas_request.create()
 
-    msm_ids.append((response['measurements'], ip[1]))
+    msm_ids.append((str(response['measurements']), ip[1]))
     print(response)
     print(is_success)
 
