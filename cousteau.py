@@ -18,6 +18,8 @@ adresses = [('192.36.144.107', 'a.ns.se'),
             ('185.159.198.150', 'z.ns.se')
             ]
 
+ipv_list = [4, 6]
+
 ATLAS_API_KEY = 'ops'
 source = AtlasSource(
     tags={'include': [], 'exclude': []},
@@ -27,46 +29,48 @@ source = AtlasSource(
 )
 
 for ip in adresses:
-    dns = Dns(
-        target=ip[0],
-        af=4,
-        query_class='IN',
-        query_type='SOA',
-        query_argument=ip[0],
-        use_macros=False,
-        description='DNS measurement' + ip[0] + ' ' + ip[1],
-        interval=time,
-        use_probe_resolver=False,
-        resolve_on_probe=False,
-        set_nsid_bit=True,
-        protocol='UDP',
-        udp_payload_size=720,
-        retry=0,
-        skip_dns_check=False,
-        include_qbuf=False,
-        include_abuf=True,
-        prepend_probe_id=False,
-        set_rd_bit=False,
-        set_do_bit=False,
-        set_cd_bit=False,
-        timeout=5000,
-        type='dns'
-    )
+    for ipv in ipv_list:
+        dns = Dns(
+            target=ip[0],
+            af=ipv,
+            query_class='IN',
+            query_type='SOA',
+            query_argument=ip[0],
+            use_macros=False,
+            description='DNS measurement' + ip[0] + ' ' + ip[1],
+            interval=time,
+            use_probe_resolver=False,
+            resolve_on_probe=False,
+            set_nsid_bit=True,
+            protocol='UDP',
+            udp_payload_size=720,
+            retry=0,
+            skip_dns_check=False,
+            include_qbuf=False,
+            include_abuf=True,
+            prepend_probe_id=False,
+            set_rd_bit=False,
+            set_do_bit=False,
+            set_cd_bit=False,
+            timeout=5000,
+            type='dns'
+        )
 
-    atlas_request = AtlasCreateRequest(
-        key=ATLAS_API_KEY,
-        measurements=[dns],
-        sources=[source],
-        is_oneoff=False,
-        start_time=start,
-        stop_time=stop
-    )
+        atlas_request = AtlasCreateRequest(
+            key=ATLAS_API_KEY,
+            measurements=[dns],
+            sources=[source],
+            is_oneoff=False,
+            start_time=start,
+            stop_time=stop
+        )
 
-    (is_success, response) = atlas_request.create()
+        (is_success, response) = atlas_request.create()
 
-    msm_ids.append((str(response['measurements']), ip[1]))
-    print(response)
-    print(is_success)
+        msm_ids.append((str(response['measurements']), ip[1]))
+        print(response)
+        print(is_success)
+
 
 date = datetime.utcnow().strftime('%Y%m%d')
 ends = (datetime.utcnow() + timedelta(weeks=1)).strftime('%Y%m%d')
