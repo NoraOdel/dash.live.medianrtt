@@ -69,7 +69,8 @@ for ip in adresses:
     print(is_success)
 
 date = datetime.utcnow().strftime('%Y%m%d')
-with open('measurementIDs-' + date, 'w') as file:
+ends = (datetime.utcnow() + timedelta(weeks=1)).strftime('%Y%m%d')
+with open('msmIDs-' + date + '-to-' + ends, 'w') as file:
     for msm in msm_ids:
         file.write(msm[0] + ', ' + msm[1] + '\n')
 file.close()

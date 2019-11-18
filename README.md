@@ -2,7 +2,7 @@
 
 ## Summary
 
-   * This program does the following:
+   * These programs does the following:
       1. Downloads and parses previously defined RIPE atlas DNS measurements.
       2. Produces a CSV file with the results from one or more specified NameServer/s, and enriches the results with:
          * probe's country
@@ -10,7 +10,9 @@
          * probe's subregion
          * probe's firmware version
          * Probe's Coordinates
-      3. Plots a live line-graph based on RTTs from result file. The graph is updated every 4 seconds
+      3.1 Renderlive.py plots a live line-graph based on RTTs from result file. The graph is updated every 4 seconds
+      3.2 renderlinegraph.py plots a line-graph based on RTTs from result file. The interval can be change in the code
+      3.3 cousteau.py creates measurements based on our needs along with a file filled with connecting measurementIDs
 
 
 
@@ -30,11 +32,9 @@
  $ activate your virtualenv
  $ pip install -r requirements.txt
 
- #go to Files dir
- $ cd Main/
 
  #read to run:
- $ python3  render.py
+ $ python3  renderlive.py (alternatively renderlinegraph.py or cousteau.py)
 
   ```
 
@@ -54,5 +54,7 @@
        about Ripe-Atlas probes
 
    * These files will be continuously deleted, this can be changed in the script.
-   * Changing this is NOT recommended since 3 files are created every 4 seconds --> A LOT OF FILES
+   * Changing this is NOT recommended since 3 files are created every 4 seconds if renderlive.py is run --> A LOT OF FILES
+
+   * MeasurementIDs file consisting of measurementIDs and connecting NameServers
 
