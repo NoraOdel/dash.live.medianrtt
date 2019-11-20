@@ -13,12 +13,13 @@ my_parser.add_argument('firstlast',
 
 my_parser.add_argument('-ns',
                        help='Choose one or more NameServers to visualize by typing "-ns" followed by wanted'
-                            ' nameservers like this: "letter".ns.se"4/6", default is "all4" which equals to every nameserver for IPv4',
+                            ' nameservers like this: "letter".ns.se"4/6", default is "all4" which means '
+                            'every nameserver for IPv4',
                        type=str,
                        nargs='*',
                        default='all4')
 my_parser.add_argument('-interval',
-                       help='choose the time difference for fetching measurement results, default is 10 min',
+                       help='choose time difference for measurement results, default is 10 min',
                        type=int,
                        nargs=1,
                        default=[10])
