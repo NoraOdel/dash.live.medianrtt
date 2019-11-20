@@ -6,14 +6,25 @@ import plotly
 import webbrowser
 from datetime import datetime, timedelta
 from static.run import main
-from static.fix import fixer
+from fix import fixer
+import argparse
+
+my_parser = argparse.ArgumentParser()
+my_parser.add_argument('-ns',
+                       help='Choose one or more NameServers to visualize by typing "-ns" followed by wanted'
+                            ' nameservers like this: "letter".ns.se"4/6", default is "all4" which equals to every nameserver for IPv4',
+                       type=str,
+                       nargs='*',
+                       default='all4')
+args = my_parser.parse_args()
+nameserver = args.ns
+
 
 data = {  # the amount of y keys in data should be the same as the amount of keys in ms_id dict
         'x': [],
-        'datetime': [],
-        'y1': []
+        'datetime': []
 }
-
+ms_id = {}
 
 app = dash.Dash()
 app.layout = html.Div(children=[
@@ -21,20 +32,51 @@ app.layout = html.Div(children=[
     dcc.Graph(id='example'),
     dcc.Interval(
         id='interval-component',
-        interval=1 * 6000,  # in milliseconds, not under 3000 ms --> to fast
+        interval=1 * 10000,  # in milliseconds, not under 3000 ms --> to fast
         n_intervals=0)])
+
+if nameserver is 'all4':
+    with open('msmIDs-20191119-to-20191126', 'r') as file:
+        f = file.readlines()
+        for item in f:
+            item = item.rstrip().split(', ')
+            ip = int(item[1][-1])
+            if ip == 6:
+                break
+            ms_id[item[1]] = item[0]
+    file.close()
+elif nameserver == 'all':
+    with open('msmIDs-20191119-to-20191126', 'r') as file:
+        f = file.readlines()
+        for item in f:
+            item = item.rstrip().split(', ')
+            ip = int(item[1][-1])
+            ms_id[item[1]] = item[0]
+    file.close()
+else:
+    with open('msmIDs-20191119-to-20191126', 'r') as file:
+        f = file.readlines()
+        for item in f:
+            item = item.rstrip().split(', ')
+            for numb in range(len(nameserver)):
+                if nameserver[numb] == item[1]:
+                    ms_id[item[1]] = item[0]
+    file.close()
+
+for num in range(1, len(ms_id)+1):  # the amount of y keys in 'data' should be the same as the amount of keys in 'ms_id'
+    data['y' + str(num)] = []
+
+print(data)
 
 @app.callback(Output(component_id='example', component_property='figure'),
               [Input(component_id='interval-component', component_property='n_intervals')])
 def update(step):
-    ms_id = {
-        'a.ns.se': '23191329'}  # choose which measurement you'll want to include, and you're DONE!
 
     start = datetime.utcnow()
     stop = start + timedelta(minutes=10)
 
     rtt_list = main(start, stop, ms_id)
-    if len(data['x']) == 1200:  # when the graph has 1200 coordinates the first one in every list will be removed
+    if len(data['x']) == 200:  # when the graph has 1200 coordinates the first one in every list will be removed
         for val in data.values():
             val.pop(0)
 

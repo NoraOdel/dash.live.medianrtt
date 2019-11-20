@@ -2,11 +2,11 @@ from datetime import datetime, timedelta
 from ripe.atlas.cousteau import Dns, AtlasSource, AtlasCreateRequest
 
 msm_ids = []
-time = 'VET EJ ÄN'
-requested = 'VET EJ ÄN'
-start = datetime.utcnow()
+time = 600
+requested = 50
+start = datetime.utcnow() + timedelta(minutes=10)
 stop = start + timedelta(weeks=1)
-adresses = [('192.36.144.107', 'a.ns.se'),
+adresses4 = [('192.36.144.107', 'a.ns.se'),
             ('192.36.133.107', 'b.ns.se'),
             ('192.36.135.107', 'c.ns.se'),
             ('192.71.53.53', 'f.ns.se'),
@@ -18,8 +18,8 @@ adresses = [('192.36.144.107', 'a.ns.se'),
             ('185.159.198.150', 'z.ns.se')
             ]
 
-ATLAS_API_KEY = 'ops'
-ATLAS_API_KEY_2 = 'ops'
+ATLAS_API_KEY = '747debe2-7cf6-4605-9c69-620b5c5941aa'
+ATLAS_API_KEY_2 = '22fc10bc-fd4e-4717-a1e3-70f8f86796de'
 source = AtlasSource(
     tags={'include': [], 'exclude': []},
     type='country',
@@ -27,13 +27,13 @@ source = AtlasSource(
     requested=requested
 )
 
-for ip in adresses:
+for ip in adresses4:
     dns = Dns(
         target=ip[0],
         af=4,
         query_class='IN',
         query_type='SOA',
-        query_argument=ip[0],
+        query_argument=ip[1],
         use_macros=False,
         description='DNS measurement' + ip[0] + ' ' + ip[1],
         interval=time,
@@ -59,25 +59,39 @@ for ip in adresses:
         measurements=[dns],
         sources=[source],
         is_oneoff=False,
+        bill_to='ulrich@wisser.se',
         start_time=start,
         stop_time=stop
     )
 
     (is_success, response) = atlas_request.create()
-
-    msm_ids.append((str(response['measurements']), ip[1]))
     print(response)
     print(is_success)
 
-for ip in adresses:
+    measurement = (str(response['measurements'])[1:-2], ip[1] + str(4))
+    msm_ids.append(measurement)
+
+adresses6 = [('2a01:3f0:0:301::53', 'a.ns.se'),
+             ('2001:67c:254c:301::53', 'b.ns.se'),
+             ('2001:67c:2554:301::53', 'c.ns.se'),
+             ('2a01:3f0:0:305::53', 'f.ns.se'),
+             ('2001:6b0:e:3::1', 'g.ns.se'),
+             ('2001:67c:1010:5::53', 'i.ns.se'),
+             ('2001:500:2c::1', 'j.ns.se'),
+             ('2001:67c:124c:e000::4', 'x.ns.se'),
+             ('2620:10a:80aa::150', 'y.ns.se'),
+             ('2620:10a:80ab::150', 'z.ns.se')
+             ]
+
+for ip6 in adresses6:
     dns = Dns(
-        target=ip[0],
+        target=ip6[0],
         af=6,
         query_class='IN',
         query_type='SOA',
-        query_argument=ip[0],
+        query_argument=ip6[1],
         use_macros=False,
-        description='DNS measurement' + ip[0] + ' ' + ip[1],
+        description='DNS measurement' + ip6[0] + ' ' + ip6[1],
         interval=time,
         use_probe_resolver=False,
         resolve_on_probe=False,
@@ -101,15 +115,17 @@ for ip in adresses:
         measurements=[dns],
         sources=[source],
         is_oneoff=False,
+        bill_to='ulrich@wisser.se',
         start_time=start,
         stop_time=stop
     )
 
     (is_success, response) = atlas_request.create()
-
-    msm_ids.append((str(response['measurements']), ip[1]))
     print(response)
     print(is_success)
+
+    measurement = (str(response['measurements'])[1:-2], ip6[1] + str(6))
+    msm_ids.append(measurement)
 
 date = datetime.utcnow().strftime('%Y%m%d')
 ends = (datetime.utcnow() + timedelta(weeks=1)).strftime('%Y%m%d')
