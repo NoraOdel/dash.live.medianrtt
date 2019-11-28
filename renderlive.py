@@ -6,7 +6,7 @@ import plotly
 import webbrowser
 from datetime import datetime, timedelta
 from static.run import main
-from fix import fixer
+from fix import fixer, meta_fixer
 import argparse
 import numpy as np
 
@@ -132,6 +132,8 @@ def update(step):
 if __name__ == '__main__':
     webbrowser.open_new('http://127.0.0.1:8050/')
     app.run_server(debug=True)
+    meta_fixer()
+
 
 
 
