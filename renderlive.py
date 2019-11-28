@@ -8,11 +8,13 @@ from datetime import datetime, timedelta
 from static.run import main
 from fix import fixer
 import argparse
+import numpy as np
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('-ns',
                        help='Choose one or more NameServers to visualize by typing "-ns" followed by wanted'
-                            ' nameservers like this: "letter".ns.se"4/6", default is "all4" which equals to every nameserver for IPv4',
+                            ' nameservers like this: "letter".ns.se"4/6", default is "all4" which '
+                            'equals to every nameserver for IPv4',
                        type=str,
                        nargs='*',
                        default='all4')
@@ -36,7 +38,7 @@ app.layout = html.Div(children=[
         n_intervals=0)])
 
 if nameserver is 'all4':
-    with open('msmIDs-20191119-to-20191126', 'r') as file:
+    with open('msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
         f = file.readlines()
         for item in f:
             item = item.rstrip().split(', ')
@@ -46,7 +48,7 @@ if nameserver is 'all4':
             ms_id[item[1]] = item[0]
     file.close()
 elif nameserver == 'all':
-    with open('msmIDs-20191119-to-20191126', 'r') as file:
+    with open('msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
         f = file.readlines()
         for item in f:
             item = item.rstrip().split(', ')
@@ -54,7 +56,7 @@ elif nameserver == 'all':
             ms_id[item[1]] = item[0]
     file.close()
 else:
-    with open('msmIDs-20191119-to-20191126', 'r') as file:
+    with open('msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
         f = file.readlines()
         for item in f:
             item = item.rstrip().split(', ')
@@ -100,14 +102,13 @@ def update(step):
     print(step)
     for x in range(1, len(ms_id) + 1):
 
-        data['y'+str(x)].append(rtt_list[x-1])
+        data['y'+str(x)].append(np.mean(rtt_list[x-1]))
         fig.append_trace({
             'x': data['datetime'],
             'y': data['y'+str(x)],
             'name': list(ms_id.keys())[x-1],
             'mode': 'lines',
             'type': 'scatter',
-            'hovertext': '',
             'hoverinfo': 'text+y+name',
             'hovertemplate': 'RTT: %{y}',
             'opacity': 0.9
@@ -118,6 +119,7 @@ def update(step):
         tickmode='auto',
         nticks=6,
         dtick=1)
+    print(data)
 
     if data['x'][0] != 0 and data['x'][1] != 1:
         for val in data.values():

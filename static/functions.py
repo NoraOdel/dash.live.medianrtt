@@ -20,11 +20,6 @@ def json_parser(f):
     for lines in measurement:
         try:
             my_results = DnsResult(lines)
-
-        except:
-            print('Error: Measurement is not a DNS measurement')
-
-        try:
             src_result = my_results.responses[0].source_address
             dst_result = my_results.responses[0].destination_address
             proto_result = my_results.responses[0].protocol
@@ -41,7 +36,7 @@ def json_parser(f):
                            str(fw) + ',' + str(timestamp))
 
         except:
-            print('ERROR: EMPTY measurement \n')
+            print('EMPTY measurement \n')
             answers.append(',' + ',' + ',' + ',' + ',' + ',' + ',')
 
     return answers
@@ -128,7 +123,6 @@ def read_ripe_probe_list(date, probeFile, geo_data):
 
 def makeatlas(atlas_results, url, probeFile, ns):
     r = requests.get(url)
-    print(url)
     measurements = json_parser(r.content.decode("utf-8"))
     probeDict = read_probe_data(probeFile + ".gz", ns)
 
@@ -150,24 +144,3 @@ def makeatlas(atlas_results, url, probeFile, ns):
             csvFileFromAtlas.write(k + "," + trailler + "\n")
     csvFileFromAtlas.close()
     return atlas_results
-
-
-"""
-def parse(statsCSV_list):
-    rtt_list = []
-    for file in statsCSV_list:
-        with open(file, 'r') as results:
-            for row in results:
-
-                if 'ip_dst,proto,rtt,probeID,rcode' in row:
-                    continue
-                sp = row.split(',')
-                rtt = sp[3]
-                timestamp = sp[7]
-                if rtt != '':
-                    rtt = float(rtt)
-                    rtt_list.append(rtt)
-
-    mean_rtt = sum(rtt_list)/len(rtt_list)
-    return mean_rtt, timestamp
-"""

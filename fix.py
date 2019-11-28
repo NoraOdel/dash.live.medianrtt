@@ -8,8 +8,14 @@ def fixer():
             os.remove(file)
 
     print('\nRelax, take it easy!')
-    print('It should be fine now.\n')
+    print("We're all saved. \n")
+
+
+def meta_fixer():
+    for file in os.listdir():
+        if 'probemetadata.json.gz' in file:
+            os.remove(file)
 
 
 fixer()
-
+meta_fixer()

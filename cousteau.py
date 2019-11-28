@@ -18,8 +18,8 @@ adresses4 = [('192.36.144.107', 'a.ns.se'),
              ('185.159.198.150', 'z.ns.se')
              ]
 
-ATLAS_API_KEY = ''
-ATLAS_API_KEY_2 = ''
+ATLAS_API_KEY = ''  # from NO account
+ATLAS_API_KEY_2 = ''  # from MSM account
 source = AtlasSource(
     tags={'include': [], 'exclude': []},
     type='country',
@@ -124,11 +124,12 @@ for ip6 in adresses6:
     print(response)
     print(is_success)
 
-    measurement = (str(response['measurements'])[1:-2], ip6[1] + str(6))
+    measurement = (str(response['measurements'])[1:-1], ip6[1] + str(6))
     msm_ids.append(measurement)
 
-date = datetime.utcnow().strftime('%Y%m%d')
-ends = (datetime.utcnow() + timedelta(weeks=1)).strftime('%Y%m%d')
+
+date = start.strftime('%Y%m%d')
+ends = stop.strftime('%Y%m%d')
 with open('msmIDs-' + date + '-to-' + ends, 'w') as file:
     for msm in msm_ids:
         file.write(msm[0] + ', ' + msm[1] + '\n')

@@ -3,7 +3,6 @@ import plotly.graph_objs as go
 from static.run import main
 from fix import fixer, meta_fixer
 import argparse
-import numpy as np
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('firstlast',
@@ -24,7 +23,6 @@ my_parser.add_argument('-interval',
                        type=int,
                        nargs=1,
                        default=[10])
-
 args = my_parser.parse_args()
 nameserver = args.ns
 firstlast = args.firstlast
@@ -36,7 +34,6 @@ print('Interval: ' + str(interval[0]))
 print('Initial start time: ' + str(start))
 print('Process will stop when start is equal to: ' + str(last))
 print('Rendering: ' + str(nameserver))
-
 
 ms_id = {}
 with open('msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
@@ -58,49 +55,39 @@ for num in range(1, len(ms_id)+1):  # the amount of y keys in 'data' should be t
     x_dict['x' + str(num)] = []
     y_dict['y' + str(num)] = []
 
-
-while start != last:  # depending on time and interval
+maximum = 0
+while start != last - timedelta(minutes=10):  # depending on time and interval
 
     start = start + timedelta(minutes=interval[0])  # interval
     stop = start + timedelta(minutes=10)
+    print(start)
+    print(stop)
     rtt_list = main(start, stop, ms_id)
 
     for y in y_dict:
         x = 'x' + y.strip('y')
-        y_dict[y].append(np.mean(rtt_list[int(y.strip('y'))-1]))
-        x_dict[x].append(str(start))
+        for item in rtt_list[int(y.strip('y'))-1]:
+            y_dict[y].append(item)
+            x_dict[x].append(start)
+        if max(y_dict[y]) > maximum:
+            maximum = max(y_dict[y])
 
-fig = go.Figure()
+maximum = [0 - maximum*0.05, maximum + maximum*0.05]
 for y in y_dict:
     name = list(ms_id)[int(y.strip('y'))-1]
     x = 'x' + y.strip('y')
-    if int(y.strip('y')) >= 11:
-        line_ip = 'lines+markers'
-    else:
-        line_ip = 'lines'
-
-    fig.add_trace(go.Scatter(x=x_dict[x], y=y_dict[y],
-                             mode=line_ip,
-                             name=name,
-                             hoverinfo='text+y+name',
-                             hovertemplate='RTT: %{y}'))
-
-initial = datetime.strptime(firstlast[0], '%Y-%m-%d')
-if str(initial).split(' ')[0] == str(last).split(' ')[0]:
-    title_part = 'on ' + str(initial).split(' ')[0]
-else:
-    title_part = 'between ' + str(initial).split(' ')[0] + ' and ' + str(last).split(' ')[0]
-fig.update_layout(title='Median RTT (in milliseconds) for .se NameServers ' + title_part,
-                  yaxis=dict(
-                      ticksuffix='ms'
-                  ),
-                  xaxis=dict(
-                      tickmode='auto',
-                      nticks=6,
-                      dtick=1
-                  ))
-fig.show()
+    print(len(y_dict[y]))
+    print(len(x_dict[x]))
+    fig = go.Figure(data=go.Scatter(x=x_dict[x],
+                                    y=y_dict[y],
+                                    name=name,
+                                    hoverinfo='text+y+name',
+                                    hovertemplate='RTT: %{y}',
+                                    mode='markers'))
+    fig.update_layout(title=name,
+                      yaxis_zeroline=False, xaxis_zeroline=False)
+    fig.update_yaxes(range=maximum)
+    fig.show()
 
 fixer()
 meta_fixer()
-
