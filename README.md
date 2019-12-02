@@ -6,7 +6,7 @@
         1. measurement_creation.py --> creates user-defined DNS-measurement in Ripe Atlas
         2. renderlinegraph.py --> renders a line-graph for one or more nameservers between a specified timeperiod
         3. renderlive.py --> renders a live line-graph for on or more nameservers
-        4. scatterrtt.py --> renders a scatter-plot for one nameserver between a specified timeperiod
+        4. renderscatterplot.py --> renders a scatter-plot for one nameserver between a specified timeperiod
            Every timestamp in this timeperiod connects to all rtt values in the resultfile from that time
 
 
@@ -43,9 +43,9 @@
  $ python3 measurement_creation.py (or)
  $ python3 renderlinegraph.py (or)
  $ python3 renderlive.py (or)
- $ python3 scatterrtt.py
+ $ python3 renderscatterplot.py
 
- #required arguments for renderlinegraph.py and scatterrtt.py:
+ #required arguments for renderlinegraph.py and renderscatterplot.py:
  $ first
    --> initial start time in datetime format ie. yyy-mm-dd hh:mm:ss
 
@@ -62,7 +62,7 @@
        144*10 = 1440 minutes --> 24h
 
  # EXAMPLE:
- $ python3 scatterrtt.py 2019-11-22 12:00:00 2019-11-23 12:00:00 -ns a.ns.se4 z.ns.se4 b.ns.se6 -interval 30
+ $ python3 renderscatterplot.py 2019-11-22 12:00:00 2019-11-23 12:00:00 -ns a.ns.se4 z.ns.se4 b.ns.se6 -interval 30
 
    This would create a scatter plot with a timeperiod between 2019-11-22 12:00:00 and 2019-11-23 12:00:00,
    for nameservers a.ns.se4, z.ns.se4  and b.ns.se6 with an interval of 30 minutes
