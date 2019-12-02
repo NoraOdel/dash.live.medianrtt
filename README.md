@@ -33,9 +33,9 @@
  #Clone the repository
  $ git clone https://github.com/NoraOdel/dash.live.medianrtt.git
 
- #Download requirements.txt
  $ cd dash.live.medianrtt/
- $ activate your virtualenv
+ #Activate your virtualenv then
+ #Download requirements.txt
  $ pip install -r requirements.txt
 
 
@@ -46,8 +46,8 @@
  $ python3 renderscatterplot.py
 
  #required arguments for renderlinegraph.py and renderscatterplot.py:
- $ first
-   --> initial start time in datetime format ie. yyy-mm-dd hh:mm:ss
+  first
+  --> initial start time in datetime format ie. yyy-mm-dd hh:mm:ss
 
  #optional arguments:
  $ -ns  (option for renderlive.py aswell)
@@ -65,7 +65,7 @@
  $ python3 renderscatterplot.py 2019-11-22 12:00:00 2019-11-23 12:00:00 -ns a.ns.se4 z.ns.se4 b.ns.se6 -interval 30
 
    This would create a scatter plot with a timeperiod between 2019-11-22 12:00:00 and 2019-11-23 12:00:00,
-   for nameservers a.ns.se4, z.ns.se4  and b.ns.se6 with an interval of 30 minutes
+   for nameservers a.ns.se4, z.ns.se4 and b.ns.se6 with an interval of 30 minutes
 
 
   ```
