@@ -1,8 +1,8 @@
 from datetime import datetime
 import os.path
 import os
-from static.functions import read_ripe_probe_list, read_iso_countries_list, makeatlas
-from static.fix import meta_fixer
+from Static.functions import read_ripe_probe_list, read_iso_countries_list, makeatlas
+from Static.fix import meta_fixer
 
 
 def main(start, stop, ms_id):

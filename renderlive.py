@@ -5,8 +5,8 @@ from dash.dependencies import Output, Input
 import plotly
 import webbrowser
 from datetime import datetime, timedelta
-from static.run import main
-from static.fix import fixer, meta_fixer
+from Static.run import main
+from Static.fix import fixer, meta_fixer
 import argparse
 import numpy as np
 

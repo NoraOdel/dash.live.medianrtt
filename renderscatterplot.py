@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import plotly.graph_objs as go
-from static.run import main
-from static.fix import fixer, meta_fixer
+from Static.run import main
+from Static.fix import fixer, meta_fixer
 import argparse
 
 my_parser = argparse.ArgumentParser()

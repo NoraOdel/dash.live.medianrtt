@@ -1,7 +1,7 @@
 from datetime import datetime
 import os.path
 import os
-from static.functions import read_ripe_probe_list, read_iso_countries_list, makeatlas
+from Static.functions import read_ripe_probe_list, read_iso_countries_list, makeatlas
 
 
 def main(start, stop, ms_id):
