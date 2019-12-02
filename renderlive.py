@@ -6,7 +6,7 @@ import plotly
 import webbrowser
 from datetime import datetime, timedelta
 from static.run import main
-from fix import fixer, meta_fixer
+from static.fix import fixer, meta_fixer
 import argparse
 import numpy as np
 
@@ -60,8 +60,8 @@ else:
         f = file.readlines()
         for item in f:
             item = item.rstrip().split(', ')
-            for numb in range(len(nameserver)):
-                if nameserver[numb] == item[1]:
+            for num in range(len(nameserver)):
+                if nameserver[num] == item[1]:
                     ms_id[item[1]] = item[0]
     file.close()
 
@@ -122,8 +122,8 @@ def update(step):
     print(data)
 
     if data['x'][0] != 0 and data['x'][1] != 1:
-        for val in data.values():
-            val.pop(0)
+        for vals in data.values():
+            vals.pop(0)
 
     fixer()
     return fig

@@ -27,15 +27,15 @@ source = AtlasSource(
     requested=requested
 )
 
-for ip in adresses4:
+for ip4 in adresses4:
     dns = Dns(
-        target=ip[0],
+        target=ip4[0],
         af=4,
         query_class='IN',
         query_type='SOA',
-        query_argument=ip[1],
+        query_argument=ip4[1],
         use_macros=False,
-        description='DNS measurement' + ip[0] + ' ' + ip[1],
+        description='DNS measurement' + ip4[0] + ' ' + ip4[1],
         interval=time,
         use_probe_resolver=False,
         resolve_on_probe=False,
@@ -68,7 +68,7 @@ for ip in adresses4:
     print(response)
     print(is_success)
 
-    measurement = (str(response['measurements'])[1:-2], ip[1] + str(4))
+    measurement = (str(response['measurements'])[1:-2], ip4[1] + str(4))
     msm_ids.append(measurement)
 
 adresses6 = [('2a01:3f0:0:301::53', 'a.ns.se'),
@@ -130,7 +130,9 @@ for ip6 in adresses6:
 
 date = start.strftime('%Y%m%d')
 ends = stop.strftime('%Y%m%d')
-with open('msmIDs-' + date + '-to-' + ends, 'w') as file:
+file_name = 'msmIDs-' + date + '-to-' + ends
+with open('Files/'+file_name, 'w') as file:
     for msm in msm_ids:
         file.write(msm[0] + ', ' + msm[1] + '\n')
 file.close()
+

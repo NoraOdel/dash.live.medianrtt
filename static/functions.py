@@ -9,7 +9,6 @@ import dns.message
 import base64
 from datetime import datetime, timedelta
 
-
 def json_parser(f):
     answers = []
     try:
@@ -26,6 +25,7 @@ def json_parser(f):
             rtt_result = my_results.responses[0].response_time
             abuf = str(my_results.responses[0].abuf)
             dnsmsg = dns.message.from_wire(base64.b64decode(abuf))
+            nsid = my_results.responses[0].abuf.edns0.options[0].nsid
             rcode = dnsmsg.rcode()
             prb_id = lines['prb_id']
             fw = lines['fw']
@@ -33,7 +33,7 @@ def json_parser(f):
 
             answers.append(str(src_result) + ',' + str(dst_result) + ',' + str(proto_result) + ',' +
                            str(rtt_result) + ',' + str(prb_id) + ',' + str(rcode) + ',' +
-                           str(fw) + ',' + str(timestamp))
+                           str(fw) + ',' + str(timestamp) + ',' + str(nsid))
 
         except:
             print('EMPTY measurement \n')
@@ -89,7 +89,7 @@ def read_ripe_probe_list(date, probeFile, geo_data):
     decompressed = (bz2.decompress(r.content)).decode("utf-8")
 
     j = json.loads(decompressed)
-    outz = open(probeFile, 'w')
+    outz = open('TempFiles/'+probeFile, 'w')
 
     tempList = j['objects']
     newDict = j
@@ -116,19 +116,19 @@ def read_ripe_probe_list(date, probeFile, geo_data):
     json.dump(newDict, outz)
     outz.close()
 
-    with open(probeFile, 'rb') as f_in, gzip.open(probeFile+'.gz', 'wb') as f_out:
+    with open('TempFiles/'+probeFile, 'rb') as f_in, gzip.open('TempFiles/'+probeFile+'.gz', 'wb') as f_out:
         f_out.writelines(f_in)
-    os.remove(probeFile)
+    os.remove('TempFiles/'+probeFile)
 
 
 def makeatlas(atlas_results, url, probeFile, ns):
     r = requests.get(url)
     measurements = json_parser(r.content.decode("utf-8"))
-    probeDict = read_probe_data(probeFile + ".gz", ns)
+    probeDict = read_probe_data('TempFiles/'+probeFile + ".gz", ns)
 
-    with open(atlas_results, 'a') as csvFileFromAtlas:
+    with open('TempFiles/'+atlas_results, 'a') as csvFileFromAtlas:
         csvFileFromAtlas.write(
-            "ip_src,ip_dst,proto,rtt,probeID,rcode,atlas_firmware,timestamp,"
+            "ip_src,ip_dst,proto,rtt,probeID,rcode,atlas_firmware,timestamp,nsid,"
             "country,continent,subregion,longitud,latitud,measurementID\n")
 
         probes_not_found = 0

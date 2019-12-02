@@ -1,15 +1,22 @@
 from datetime import datetime, timedelta
 import plotly.graph_objs as go
 from static.run import main
-from fix import fixer, meta_fixer
+from static.fix import fixer, meta_fixer
 import argparse
 
 my_parser = argparse.ArgumentParser()
-my_parser.add_argument('firstlast',
-                       help='Choose time for rendering by typing "-firstlast" followed by '
-                            '"yyyy-mm-dd hh:mm:ss", for both first = beginning and last = ending',
+my_parser.add_argument('first',
+                       help='Choose time for rendering by typing'
+                            '"yyyy-mm-dd hh:mm:ss"',
                        type=str,
-                       nargs=4)
+                       nargs=2)
+
+my_parser.add_argument('-numberofintervals',
+                       help='Choose how many times results are to be fetched, default is 144. '
+                            'If -interval is 10 minutes the timeperiod will be 24h: 144*10 = 1440 minutes --> 24h',
+                       type=int,
+                       nargs=1,
+                       default=[144])
 
 my_parser.add_argument('-ns',
                        help='Choose one or more NameServers to visualize by typing "-ns" followed by wanted'
@@ -23,12 +30,15 @@ my_parser.add_argument('-interval',
                        type=int,
                        nargs=1,
                        default=[10])
+
 args = my_parser.parse_args()
 nameserver = args.ns
-firstlast = args.firstlast
+first = args.first
+numberofintervals = args.numberofintervals
 interval = args.interval
-start = datetime.strptime(firstlast[0] + ' ' + firstlast[1], '%Y-%m-%d %H:%M:%S')
-last = datetime.strptime(firstlast[2] + ' ' + firstlast[3], '%Y-%m-%d %H:%M:%S')
+start = datetime.strptime(first[0] + ' ' + first[1], '%Y-%m-%d %H:%M:%S')
+last = start + timedelta(minutes=interval[0]*numberofintervals[0])
+
 
 print('Interval: ' + str(interval[0]))
 print('Initial start time: ' + str(start))
@@ -44,8 +54,8 @@ with open('msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to w
             ip = int(item[1][-1])
             ms_id[item[1]] = item[0]
         else:
-            for numb in range(len(nameserver)):
-                if nameserver[numb] == item[1]:
+            for num in range(len(nameserver)):
+                if nameserver[num] == item[1]:
                     ms_id[item[1]] = item[0]
 file.close()
 
@@ -56,7 +66,7 @@ for num in range(1, len(ms_id)+1):  # the amount of y keys in 'data' should be t
     y_dict['y' + str(num)] = []
 
 maximum = 0
-while start != last - timedelta(minutes=10):  # depending on time and interval
+while start != last:  # depending on time and interval
 
     start = start + timedelta(minutes=interval[0])  # interval
     stop = start + timedelta(minutes=10)
@@ -76,8 +86,6 @@ maximum = [0 - maximum*0.05, maximum + maximum*0.05]
 for y in y_dict:
     name = list(ms_id)[int(y.strip('y'))-1]
     x = 'x' + y.strip('y')
-    print(len(y_dict[y]))
-    print(len(x_dict[x]))
     fig = go.Figure(data=go.Scatter(x=x_dict[x],
                                     y=y_dict[y],
                                     name=name,

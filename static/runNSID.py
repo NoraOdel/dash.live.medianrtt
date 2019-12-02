@@ -2,7 +2,6 @@ from datetime import datetime
 import os.path
 import os
 from static.functions import read_ripe_probe_list, read_iso_countries_list, makeatlas
-from static.fix import meta_fixer
 
 
 def main(start, stop, ms_id):
@@ -16,12 +15,14 @@ def main(start, stop, ms_id):
 
     probefile = date + "-probemetadata.json"
     file_gz = date + '-probemetadata.json.gz'
-    if os.path.exists('TempFiles/' + file_gz):
+    if os.path.exists(file_gz):
         pass
 
     else:
         print('ProbeMetaData did not exist')
-        meta_fixer()
+        for item in os.listdir():
+            if 'probemetadata.json.gz' in item:
+                os.remove(item)
 
         geo_data = read_iso_countries_list()
         read_ripe_probe_list(date, probefile, geo_data)
@@ -30,12 +31,12 @@ def main(start, stop, ms_id):
     for ns in ms_id:
         atlas_results = ns + '-' + date + "-" + ts_start + "-" + ts_stop + "-atlas-results.csv"
 
-        if len(ns) == 9:  # if you would want both ipv4 and ipv6 in the same result file, might need som work
+        if len(ns) == 3:  # if you would want both ipv4 and ipv6 in the same result file, might need some work
             m_list = [list(ns)[0] + list(ns)[1], list(ns)[0] + list(ns)[-1]]
             for m in m_list:
                 measurement_id = ms_id[m]
                 url = beginning + measurement_id + end
-                atlas_results = makeatlas(atlas_results, url, probefile, ns)  # end of thing that needs work
+                atlas_results = makeatlas(atlas_results, url, probefile, ns)
 
         else:
             url = beginning + ms_id[ns] + end
@@ -46,25 +47,26 @@ def main(start, stop, ms_id):
         stats_csv_list.append(atlas_results)
 
     print('\nIf WARNING occurred some measurements were empty. Do not panic!!!'.upper())
-    rtt_list = []
+
+    nsid_rtt = []
     for file in stats_csv_list:
-        with open('TempFiles/'+file, 'r') as results:
-            rtt_ns = []
+        with open(file, 'r') as results:
             for row in results:
                 if 'ip_dst,proto,rtt,probeID,rcode' in row:
                     continue
 
                 sp = row.split(',')
                 rtt = sp[3]
-                if rtt != '':
+                nsid = sp[8]
+
+                if rtt != '' and nsid != '':
                     rtt = float(rtt)
-                    rtt_ns.append(rtt)
+                    nsid_rtt.append((nsid, rtt))
 
-            if len(rtt_ns) == 0:
-                rtt_ns.append(0)
+            if len(nsid_rtt) == 0:
+                nsid_rtt.append((0, 0))
         results.close()
-        rtt_list.append(rtt_ns)
 
-    return rtt_list
+    return nsid_rtt
     # returns a list of rtt_ns lists,
     # every rtt_ns list includes rtt results from one name-server on the specified time

@@ -1,17 +1,22 @@
 from datetime import datetime, timedelta
 import plotly.graph_objs as go
 from static.run import main
-from fix import fixer, meta_fixer
+from static.fix import fixer, meta_fixer
 import argparse
 import numpy as np
 
 my_parser = argparse.ArgumentParser()
-my_parser.add_argument('firstlast',
-                       help='Choose time for rendering by typing "-firstlast" followed by '
-                            '"yyyy-mm-dd hh:mm:ss", for both first = beginning and last = ending',
+my_parser.add_argument('first',
+                       help='Choose time for rendering by typing'
+                            '"yyyy-mm-dd hh:mm:ss"',
                        type=str,
-                       nargs=4)
-
+                       nargs=2)
+my_parser.add_argument('-numberofintervals',
+                       help='Choose how many times results are to be fetched, default is 144. '
+                            'If -interval is 10 minutes the timeperiod will be 24h: 144*10 = 1440 minutes --> 24h',
+                       type=int,
+                       nargs=1,
+                       default=[144])
 my_parser.add_argument('-ns',
                        help='Choose one or more NameServers to visualize by typing "-ns" followed by wanted'
                             ' nameservers like this: "letter".ns.se"4/6", default is "all4" which means '
@@ -27,11 +32,12 @@ my_parser.add_argument('-interval',
 
 args = my_parser.parse_args()
 nameserver = args.ns
-firstlast = args.firstlast
+first = args.first
 interval = args.interval
-start = datetime.strptime(firstlast[0] + ' ' + firstlast[1], '%Y-%m-%d %H:%M:%S')
-last = datetime.strptime(firstlast[2] + ' ' + firstlast[3], '%Y-%m-%d %H:%M:%S')
+numberofintervals = args.numberofintervals
 
+start = datetime.strptime(first[0] + ' ' + first[1], '%Y-%m-%d %H:%M:%S')
+last = start + timedelta(minutes=interval[0]*numberofintervals[0])
 print('Interval: ' + str(interval[0]))
 print('Initial start time: ' + str(start))
 print('Process will stop when start is equal to: ' + str(last))
@@ -39,7 +45,7 @@ print('Rendering: ' + str(nameserver))
 
 
 ms_id = {}
-with open('msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
+with open('Files/msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
     f = file.readlines()
     for item in f:
         item = item.rstrip().split(', ')
@@ -47,8 +53,8 @@ with open('msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to w
             ip = int(item[1][-1])
             ms_id[item[1]] = item[0]
         else:
-            for numb in range(len(nameserver)):
-                if nameserver[numb] == item[1]:
+            for num in range(len(nameserver)):
+                if nameserver[num] == item[1]:
                     ms_id[item[1]] = item[0]
 file.close()
 
@@ -85,7 +91,7 @@ for y in y_dict:
                              hoverinfo='text+y+name',
                              hovertemplate='RTT: %{y}'))
 
-initial = datetime.strptime(firstlast[0], '%Y-%m-%d')
+initial = datetime.strptime(first[0], '%Y-%m-%d')
 if str(initial).split(' ')[0] == str(last).split(' ')[0]:
     title_part = 'on ' + str(initial).split(' ')[0]
 else:
