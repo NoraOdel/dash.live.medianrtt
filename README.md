@@ -33,8 +33,9 @@
  #Clone the repository
  $ git clone https://github.com/NoraOdel/dash.live.medianrtt.git
 
- $ cd dash.live.medianrtt/
+ $ cd dash.live.medianrtt
  #Activate your virtualenv
+ $ cd Files
  #Download requirements.txt
  $ pip install -r requirements.txt
 

@@ -9,6 +9,7 @@ import dns.message
 import base64
 from datetime import datetime, timedelta
 
+
 def json_parser(f):
     answers = []
     try:

@@ -3,6 +3,7 @@ import plotly.graph_objs as go
 from Static.run import main
 from Static.fix import fixer, meta_fixer
 import argparse
+import numpy as np
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('first',
@@ -46,7 +47,7 @@ print('Process will stop when start is equal to: ' + str(last))
 print('Rendering: ' + str(nameserver))
 
 ms_id = {}
-with open('msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
+with open('Files/'+'msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
     f = file.readlines()
     for item in f:
         item = item.rstrip().split(', ')
@@ -62,38 +63,67 @@ file.close()
 y_dict = {}
 x_dict = {}
 for num in range(1, len(ms_id)+1):  # the amount of y keys in 'data' should be the same as the amount of keys in 'ms_id'
-    x_dict['x' + str(num)] = []
     y_dict['y' + str(num)] = []
+    x_dict['x' + str(num)] = []
 
 maximum = 0
 while start != last:  # depending on time and interval
-
     start = start + timedelta(minutes=interval[0])  # interval
     stop = start + timedelta(minutes=10)
     print(start)
     print(stop)
+
     rtt_list = main(start, stop, ms_id)
 
     for y in y_dict:
+        y_list = []
         x = 'x' + y.strip('y')
         for item in rtt_list[int(y.strip('y'))-1]:
-            y_dict[y].append(item)
+            y_list.append(item)
             x_dict[x].append(start)
-        if max(y_dict[y]) > maximum:
-            maximum = max(y_dict[y])
+        if max(y_list) > maximum:
+            maximum = max(y_list)
+        y_dict[y].append(y_list)
 
 maximum = [0 - maximum*0.05, maximum + maximum*0.05]
-for y in y_dict:
-    name = list(ms_id)[int(y.strip('y'))-1]
-    x = 'x' + y.strip('y')
-    fig = go.Figure(data=go.Scatter(x=x_dict[x],
-                                    y=y_dict[y],
-                                    name=name,
-                                    hoverinfo='text+y+name',
-                                    hovertemplate='RTT: %{y}',
-                                    mode='markers'))
-    fig.update_layout(title=name,
-                      yaxis_zeroline=False, xaxis_zeroline=False)
+for number in range(1, len(y_dict)+1):
+    scatter_y = []
+    scatter_x = []
+    line_x = []
+    line_y = []
+    for num in range(0, len(y_dict['y' + str(number)])):
+        y = y_dict['y'+str(number)][num]
+        x = list(dict.fromkeys(x_dict['x'+str(number)]))[num]
+
+        line_y.append(np.mean(y))
+        line_x.append(x)
+
+        x_list = []
+        for every_item in y:
+            x_list.append(x)
+
+        scatter_x.extend(x_list)
+        scatter_y.extend(y)
+
+    data = [go.Scatter(x=scatter_x,
+                       y=scatter_y,
+                       hoverinfo='text+y+name',
+                       hovertemplate='RTT: %{y}',
+                       mode='markers',
+                       marker_color='#0000FF',
+                       opacity=0.6),
+
+            go.Scatter(x=line_x,
+                       y=line_y,
+                       hoverinfo='text+y+name',
+                       hovertemplate='RTT: %{y}',
+                       mode='lines',
+                       line_color='#FF8000')]
+
+    fig = go.Figure(data=data)
+    fig.update_layout(title=list(ms_id)[number-1] + ' between ' + first + ' and ' + str(last),
+                      yaxis_zeroline=False,
+                      xaxis_zeroline=False)
     fig.update_yaxes(range=maximum)
     fig.show()
 
