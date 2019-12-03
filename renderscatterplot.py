@@ -121,7 +121,11 @@ for number in range(1, len(y_dict)+1):
                        line_color='#FF8000')]
 
     fig = go.Figure(data=data)
-    fig.update_layout(title=list(ms_id)[number-1] + ' between ' + first + ' and ' + str(last),
+    if str(first[0]) == str(last).split(' ')[0]:
+        title_thing = ' on ' + str(first[0])
+    else:
+        title_thing = ' between ' + str(first[0]) + ' and ' + str(last).split(' ')[0]
+    fig.update_layout(title=list(ms_id)[number-1] + title_thing,
                       yaxis_zeroline=False,
                       xaxis_zeroline=False)
     fig.update_yaxes(range=maximum)
