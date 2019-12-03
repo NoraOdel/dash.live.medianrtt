@@ -4,7 +4,7 @@ import os
 def fixer():
 
     for file in os.listdir('TempFiles/'):
-        if 'atlas-results.csv':
+        if 'atlas-results.csv' in file:
             os.remove('TempFiles/' + file)
 
     print('\nRelax, take it easy!')
