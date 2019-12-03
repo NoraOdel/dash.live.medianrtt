@@ -76,6 +76,8 @@ def update(step):
 
     start = datetime.utcnow()
     stop = start + timedelta(minutes=10)
+    print('Now fetching: '+str(start))
+    print('Will stop on: '+str(last)+'\n')
 
     rtt_list = main(start, stop, ms_id)
     if len(data['x']) == 200:  # when the graph has 1200 coordinates the first one in every list will be removed

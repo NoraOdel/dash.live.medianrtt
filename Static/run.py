@@ -20,8 +20,8 @@ def main(start, stop, ms_id):
         pass
 
     else:
-        print('ProbeMetaData did not exist')
         meta_fixer()
+        print('Probe meta data did not exist')
 
         geo_data = read_iso_countries_list()
         read_ripe_probe_list(date, probefile, geo_data)
@@ -40,12 +40,9 @@ def main(start, stop, ms_id):
         else:
             url = beginning + ms_id[ns] + end
             atlas_results = makeatlas(atlas_results, url, probefile, ns)
-            print(url)
 
-        print(atlas_results)
         stats_csv_list.append(atlas_results)
 
-    print('\nIf WARNING occurred some measurements were empty. Do not panic!!!'.upper())
     rtt_list = []
     for file in stats_csv_list:
         with open('TempFiles/'+file, 'r') as results:

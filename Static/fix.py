@@ -8,7 +8,7 @@ def fixer():
             os.remove('TempFiles/' + file)
 
     print('\nRelax, take it easy!')
-    print("We're all saved. \n")
+    print("Leftovers deleted if any existed")
 
 
 def meta_fixer():

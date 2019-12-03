@@ -38,10 +38,11 @@ numberofintervals = args.numberofintervals
 
 start = datetime.strptime(first[0] + ' ' + first[1], '%Y-%m-%d %H:%M:%S')
 last = start + timedelta(minutes=interval[0]*numberofintervals[0])
-print('Interval: ' + str(interval[0]))
+
+print('\nInterval: ' + str(interval[0]))
 print('Initial start time: ' + str(start))
 print('Process will stop when start is equal to: ' + str(last))
-print('Rendering: ' + str(nameserver))
+print('Rendering: ' + str(nameserver)+'\n')
 
 
 ms_id = {}
@@ -69,7 +70,11 @@ while start != last:  # depending on time and interval
 
     start = start + timedelta(minutes=interval[0])  # interval
     stop = start + timedelta(minutes=10)
+    print('Now fetching: '+str(start))
+    print('Will stop on: '+str(last)+'\n')
+
     rtt_list = main(start, stop, ms_id)
+
 
     for y in y_dict:
         x = 'x' + y.strip('y')

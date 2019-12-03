@@ -37,7 +37,6 @@ def json_parser(f):
                            str(fw) + ',' + str(timestamp) + ',' + str(nsid))
 
         except:
-            print('EMPTY measurement \n')
             answers.append(',' + ',' + ',' + ',' + ',' + ',' + ',')
 
     return answers

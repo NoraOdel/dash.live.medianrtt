@@ -4,6 +4,11 @@ from Static.run import main
 from Static.fix import fixer, meta_fixer
 import argparse
 import numpy as np
+import logging
+
+with open('Files/'+'logged_messages.log', 'w') as file:
+    file.write('This line was written so the previous lines could be deleted\n\n')
+logging.basicConfig(filename='Files/'+'logged_messages.log',level=logging.DEBUG)
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('first',
@@ -40,11 +45,10 @@ interval = args.interval
 start = datetime.strptime(first[0] + ' ' + first[1], '%Y-%m-%d %H:%M:%S')
 last = start + timedelta(minutes=interval[0]*numberofintervals[0])
 
-
-print('Interval: ' + str(interval[0]))
+print('\nInterval: ' + str(interval[0]))
 print('Initial start time: ' + str(start))
 print('Process will stop when start is equal to: ' + str(last))
-print('Rendering: ' + str(nameserver))
+print('Rendering: ' + str(nameserver)+'\n')
 
 ms_id = {}
 with open('Files/'+'msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
@@ -67,11 +71,12 @@ for num in range(1, len(ms_id)+1):  # the amount of y keys in 'data' should be t
     x_dict['x' + str(num)] = []
 
 maximum = 0
+print('Fetching result from ripeatlas every ' + str(interval) + ' minutes...\n')
 while start != last:  # depending on time and interval
     start = start + timedelta(minutes=interval[0])  # interval
     stop = start + timedelta(minutes=10)
-    print(start)
-    print(stop)
+    print('Now fetching: '+str(start))
+    print('Will stop on: '+str(last)+'\n')
 
     rtt_list = main(start, stop, ms_id)
 
