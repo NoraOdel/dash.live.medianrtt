@@ -8,6 +8,7 @@
         3. renderlive.py --> renders a live line-graph for on or more nameservers
         4. renderscatterplot.py --> renders a scatter-plot for one nameserver between a specified timeperiod
            Every timestamp in this timeperiod connects to all rtt values in the resultfile from that time
+        5. renderNSID.py --> renders a linegraph where the median is based on NSID (uses runNSID.py instead of run.py)
 
 
 
@@ -41,14 +42,15 @@
 
 
  #read to run:
- $ python3 measurement_creation.py (or)
- $ python3 renderlinegraph.py (or)
- $ python3 renderlive.py (or)
- $ python3 renderscatterplot.py
+ $ python3 measurement_creation.py yyyy-mm-dd HH-MM-SS(or)
+ $ python3 renderlinegraph.py yyyy-mm-dd HH-MM-SS (or)
+ $ python3 renderlive.py yyyy-mm-dd HH-MM-SS (or)
+ $ python3 renderscatterplot.py yyyy-mm-dd HH-MM-SS (or)
+ $ python3 renderNSID.py yyyy-mm-dd HH-MM-SS
 
  #required arguments for renderlinegraph.py and renderscatterplot.py:
   first
-  --> initial start time in datetime format ie. yyy-mm-dd hh:mm:ss
+  --> initial start time in datetime format ie. yyy-mm-dd HH:MM:SS
 
  #optional arguments:
  $ -ns  (option for renderlive.py aswell)

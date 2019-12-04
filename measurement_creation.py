@@ -4,7 +4,8 @@ from ripe.atlas.cousteau import Dns, AtlasSource, AtlasCreateRequest
 msm_ids = []
 time = 600
 requested = 50
-start = datetime.utcnow() + timedelta(minutes=10)
+# start = datetime.utcnow() + timedelta(minutes=10)
+start = datetime.strptime('2019-12-06 12:00:00', '%Y-%m-%d %H:%M:%S')
 stop = start + timedelta(weeks=1)
 adresses4 = [('192.36.144.107', 'a.ns.se'),
              ('192.36.133.107', 'b.ns.se'),
