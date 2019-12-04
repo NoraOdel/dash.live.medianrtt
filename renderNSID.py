@@ -1,14 +1,9 @@
+from Static.runNSID import main
 from datetime import datetime, timedelta
-import plotly.graph_objs as go
-from Static.run import main
 from Static.fix import fixer, meta_fixer
+import plotly.graph_objs as go
 import argparse
 import numpy as np
-import logging
-
-with open('Files/'+'logged_messages.log', 'w') as file:
-    file.write('This line was written so the previous lines could be deleted\n\n')
-logging.basicConfig(filename='Files/'+'logged_messages.log',level=logging.DEBUG)
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('first',
@@ -49,7 +44,6 @@ print('Initial start time: ' + str(start))
 print('Process will stop when start is equal to: ' + str(last))
 print('Rendering: ' + str(nameserver)+'\n')
 
-
 ms_id = {}
 with open('Files/msmIDs-20191119-to-20191126', 'r') as file:  # change in regards to which week is to be examined
     f = file.readlines()
@@ -65,48 +59,50 @@ with open('Files/msmIDs-20191119-to-20191126', 'r') as file:  # change in regard
 file.close()
 
 y_dict = {}
-x_dict = {}
+x_dict = {'x': []}
 for num in range(1, len(ms_id)+1):  # the amount of y keys in 'data' should be the same as the amount of keys in 'ms_id'
-    x_dict['x' + str(num)] = []
     y_dict['y' + str(num)] = []
 
 
-while start != last:  # depending on time and interval
+while start != last:
+    print(start)
+    print(last)
+    temp_y_dict = {}
 
-    start = start + timedelta(minutes=interval[0])  # interval
+    start = start + timedelta(minutes=interval[0])
     stop = start + timedelta(minutes=10)
-    print('Now fetching: '+str(start))
-    print('Will stop on: '+str(last)+'\n')
 
-    rtt_list = main(start, stop, ms_id)
+    rtt_nsid = main(start, stop, ms_id)
+    for tuples in rtt_nsid:
+        if tuples[0] not in temp_y_dict:
+            temp_y_dict[tuples[0]] = [tuples[1]]
+        else:
+            temp_y_dict[tuples[0]].append(tuples[1])
 
+    for key in temp_y_dict:
+        if key not in y_dict:
+            y_dict[key] = []
+            y_dict[key].append(temp_y_dict[key])
+        else:
+            y_dict[key].append(temp_y_dict[key])
 
-    for y in y_dict:
-        x = 'x' + y.strip('y')
-        y_dict[y].append(np.mean(rtt_list[int(y.strip('y'))-1]))
-        x_dict[x].append(str(start))
+    x_dict['x'].append(str(start))
 
 fig = go.Figure()
 for y in y_dict:
-    name = list(ms_id)[int(y.strip('y'))-1]
-    x = 'x' + y.strip('y')
-    if int(y.strip('y')) >= 11:
-        line_ip = 'lines+markers'
-    else:
-        line_ip = 'lines'
 
-    fig.add_trace(go.Scatter(x=x_dict[x], y=y_dict[y],
-                             mode=line_ip,
-                             name=name,
+    rtt_mean = []
+    for lists in y_dict[y]:
+        mean = np.mean(lists)
+        rtt_mean.append(mean)
+    fig.add_trace(go.Scatter(x=x_dict['x'], y=rtt_mean,
+                             mode='lines',
+                             name=y,
                              hoverinfo='text+y+name',
                              hovertemplate='RTT: %{y}'))
 
-initial = datetime.strptime(first[0], '%Y-%m-%d')
-if str(initial).split(' ')[0] == str(last).split(' ')[0]:
-    title_part = 'on ' + str(initial).split(' ')[0]
-else:
-    title_part = 'between ' + str(initial).split(' ')[0] + ' and ' + str(last).split(' ')[0]
-fig.update_layout(title='Median RTT (in milliseconds) for .se NameServers ' + title_part,
+
+fig.update_layout(title='hej',
                   yaxis=dict(
                       ticksuffix='ms'
                   ),
@@ -119,4 +115,3 @@ fig.show()
 
 fixer()
 meta_fixer()
-

@@ -15,14 +15,14 @@ def main(start, stop, ms_id):
 
     probefile = date + "-probemetadata.json"
     file_gz = date + '-probemetadata.json.gz'
-    if os.path.exists(file_gz):
+    if os.path.exists('TempFiles/'+file_gz):
         pass
 
     else:
         print('ProbeMetaData did not exist')
-        for item in os.listdir():
+        for item in os.listdir('TempFiles/'):
             if 'probemetadata.json.gz' in item:
-                os.remove(item)
+                os.remove('TempFiles/'+item)
 
         geo_data = read_iso_countries_list()
         read_ripe_probe_list(date, probefile, geo_data)
@@ -41,16 +41,14 @@ def main(start, stop, ms_id):
         else:
             url = beginning + ms_id[ns] + end
             atlas_results = makeatlas(atlas_results, url, probefile, ns)
-            print(url)
 
-        print(atlas_results)
         stats_csv_list.append(atlas_results)
 
     print('\nIf WARNING occurred some measurements were empty. Do not panic!!!'.upper())
 
     nsid_rtt = []
     for file in stats_csv_list:
-        with open(file, 'r') as results:
+        with open('TempFiles/' + file, 'r') as results:
             for row in results:
                 if 'ip_dst,proto,rtt,probeID,rcode' in row:
                     continue

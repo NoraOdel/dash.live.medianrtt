@@ -9,6 +9,11 @@ from Static.run import main
 from Static.fix import fixer, meta_fixer
 import argparse
 import numpy as np
+import logging
+
+with open('Files/'+'logged_messages.log', 'w') as file:
+    file.write('This line was written so the previous lines could be deleted\n\n')
+logging.basicConfig(filename='Files/'+'logged_messages.log',level=logging.DEBUG)
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('-ns',
