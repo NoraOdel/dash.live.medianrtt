@@ -4,6 +4,11 @@ from Static.fix import fixer, meta_fixer
 import plotly.graph_objs as go
 import argparse
 import numpy as np
+import logging
+
+with open('Files/'+'logged_messages.log', 'w') as file:
+    file.write('This line was written so the previous lines could be deleted\n\n')
+logging.basicConfig(filename='Files/'+'logged_messages.log',level=logging.DEBUG)
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('first',
@@ -65,12 +70,11 @@ for num in range(1, len(ms_id)+1):  # the amount of y keys in 'data' should be t
 
 
 while start != last:
-    print(start)
-    print(last)
     temp_y_dict = {}
-
     start = start + timedelta(minutes=interval[0])
     stop = start + timedelta(minutes=10)
+    print('Now fetching: '+str(start))
+    print('Will stop on: '+str(last)+'\n')
 
     rtt_nsid = main(start, stop, ms_id)
     for tuples in rtt_nsid:
@@ -101,8 +105,11 @@ for y in y_dict:
                              hoverinfo='text+y+name',
                              hovertemplate='RTT: %{y}'))
 
-
-fig.update_layout(title='hej',
+if str(first[0]) == str(last).split(' ')[0]:
+    title_thing = ' on ' + str(first[0])
+else:
+    title_thing = ' between ' + str(first[0]) + ' and ' + str(last).split(' ')[0]
+fig.update_layout(title='Median RTT (in milliseconds) based on NSID ' + title_thing,
                   yaxis=dict(
                       ticksuffix='ms'
                   ),

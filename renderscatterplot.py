@@ -116,14 +116,16 @@ for number in range(1, len(y_dict)+1):
                        hovertemplate='RTT: %{y}',
                        mode='markers',
                        marker_color='#0000FF',
-                       opacity=0.6),
+                       opacity=0.6,
+                       name='All rtt values'),
 
             go.Scatter(x=line_x,
                        y=line_y,
                        hoverinfo='text+y+name',
                        hovertemplate='RTT: %{y}',
                        mode='lines',
-                       line_color='#FF8000')]
+                       line_color='#FF8000',
+                       name='Median rtt based on the same values')]
 
     fig = go.Figure(data=data)
     if str(first[0]) == str(last).split(' ')[0]:

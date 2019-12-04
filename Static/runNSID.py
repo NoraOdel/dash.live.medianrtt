@@ -44,8 +44,6 @@ def main(start, stop, ms_id):
 
         stats_csv_list.append(atlas_results)
 
-    print('\nIf WARNING occurred some measurements were empty. Do not panic!!!'.upper())
-
     nsid_rtt = []
     for file in stats_csv_list:
         with open('TempFiles/' + file, 'r') as results:
