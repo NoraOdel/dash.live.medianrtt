@@ -21,6 +21,7 @@ adresses4 = [('192.36.144.107', 'a.ns.se'),
 
 ATLAS_API_KEY = ''  # from NO account
 ATLAS_API_KEY_2 = ''  # from MSM account
+
 source = AtlasSource(
     tags={'include': [], 'exclude': []},
     type='country',
