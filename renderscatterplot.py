@@ -1,3 +1,7 @@
+'''
+Copyright 2019 Nora Odelius odelius.nora@gmail.com
+'''
+
 from datetime import datetime, timedelta
 import plotly.graph_objs as go
 from Static.run import main

@@ -1,3 +1,7 @@
+'''
+Copyright 2019 Nora Odelius odelius.nora@gmail.com
+'''
+
 from Static.runNSID import main
 from datetime import datetime, timedelta
 from Static.fix import fixer, meta_fixer

@@ -1,3 +1,10 @@
+
+'''
+Copyright 2019 Nora Odelius odelius.nora@gmail.com
+
+Copyright 2018 Giovane Moura giovane.moura@sidn.nl
+'''
+
 from datetime import datetime
 import os.path
 import os
