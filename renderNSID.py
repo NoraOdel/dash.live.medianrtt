@@ -14,6 +14,7 @@ with open('Files/'+'logged_messages.log', 'w') as file:
     file.write('This line was written so the previous lines could be deleted\n\n')
 logging.basicConfig(filename='Files/'+'logged_messages.log',level=logging.DEBUG)
 
+
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('first',
                        help='Choose time for rendering by typing'
