@@ -50,25 +50,6 @@ def main(start, stop, ms_id):
 
         stats_csv_list.append(atlas_results)
 
-    nsid_rtt = []
-    for file in stats_csv_list:
-        with open('TempFiles/' + file, 'r') as results:
-            for row in results:
-                if 'ip_dst,proto,rtt,probeID,rcode' in row:
-                    continue
-
-                sp = row.split(',')
-                rtt = sp[3]
-                nsid = sp[8]
-
-                if rtt != '' and nsid != '':
-                    rtt = float(rtt)
-                    nsid_rtt.append((nsid, rtt))
-
-            if len(nsid_rtt) == 0:
-                nsid_rtt.append((0, 0))
-        results.close()
-
-    return nsid_rtt
+    return stats_csv_list
     # returns a list of rtt_ns lists,
     # every rtt_ns list includes rtt results from one name-server on the specified time

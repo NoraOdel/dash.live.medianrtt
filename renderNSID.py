@@ -80,7 +80,27 @@ while start != last:
     print('Now fetching: '+str(start))
     print('Will stop on: '+str(last)+'\n')
 
-    rtt_nsid = main(start, stop, ms_id)
+    stats_csv_list = main(start, stop, ms_id)
+
+    rtt_nsid = []
+    for file in stats_csv_list:
+        with open('TempFiles/' + file, 'r') as results:
+            for row in results:
+                if 'ip_dst,proto,rtt,probeID,rcode' in row:
+                    continue
+
+                sp = row.split(',')
+                rtt = sp[3]
+                nsid = sp[8]
+
+                if rtt != '' and nsid != '':
+                    rtt = float(rtt)
+                    rtt_nsid.append((nsid, rtt))
+
+            if len(rtt_nsid) == 0:
+                rtt_nsid.append((0, 0))
+        results.close()
+
     for tuples in rtt_nsid:
         if tuples[0] not in temp_y_dict:
             temp_y_dict[tuples[0]] = [tuples[1]]
