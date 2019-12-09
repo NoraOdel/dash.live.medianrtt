@@ -47,19 +47,20 @@ stats_list = main(start, stop, ms_id)
 
 for results in stats_list:
 
+
     sweden_coordinates = pd.read_csv('TempFiles/' + results).dropna()
     high_vals = sweden_coordinates.loc[sweden_coordinates['rtt'] > 500]
     high_vals['Extreme values'] = 'Extreme Values'
 
     indexNames = sweden_coordinates[sweden_coordinates['rtt'] > 500].index
     sweden_coordinates.drop(indexNames, inplace=True)
+    print(sweden_coordinates)
 
     fig = px.scatter_mapbox(sweden_coordinates,
                             lat="latitud",
                             lon="longitud",
                             color='nsid',
                             zoom=3,
-                            height=500,
                             opacity=1,
                             size='rtt')
     fig.update_layout(
@@ -79,8 +80,13 @@ for results in stats_list:
                 ]
             }
           ])
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0},
-                      title=dict(text="A Chart"))
+    fig.update_layout(title='RTT values for ' + sweden_coordinates['measurementID'][1] + ' grouped by NSID',
+                      showlegend=True,
+                      legend=dict(
+                                  itemsizing='trace',
+                                  tracegroupgap=10,
+                                  valign='top')
+                      )
     fig.show()
 
 fixer()
