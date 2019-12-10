@@ -5,7 +5,7 @@ Copyright 2019 Nora Odelius odelius.nora@gmail.com
 from datetime import datetime, timedelta
 import plotly.graph_objs as go
 from Static.run import main
-from Static.fix import fixer, meta_fixer
+from Static.fix import fixer, meta_fixer, draw
 import argparse
 import numpy as np
 import logging
@@ -123,4 +123,5 @@ fig.show()
 
 fixer()
 meta_fixer()
+draw()
 

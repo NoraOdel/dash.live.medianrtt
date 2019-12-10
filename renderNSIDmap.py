@@ -7,7 +7,7 @@ import plotly.express as px
 import argparse
 from datetime import timedelta, datetime
 from Static.runNSID import main
-from Static.fix import fixer, meta_fixer
+from Static.fix import fixer, meta_fixer, draw
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('-start',
@@ -47,14 +47,16 @@ stats_list = main(start, stop, ms_id)
 
 for results in stats_list:
 
-
     sweden_coordinates = pd.read_csv('TempFiles/' + results).dropna()
     high_vals = sweden_coordinates.loc[sweden_coordinates['rtt'] > 500]
-    high_vals['Extreme values'] = 'Extreme Values'
+    cols = [3, 8, 12, 13]
+    high_vals = high_vals[high_vals.columns[cols]]
+    print('--> These values were to high to be included in the plot:\n')
+    print(high_vals)
+    print('\n--> PLEASE NOTICE THEM THOUGH!!!')
 
     indexNames = sweden_coordinates[sweden_coordinates['rtt'] > 500].index
     sweden_coordinates.drop(indexNames, inplace=True)
-    print(sweden_coordinates)
 
     fig = px.scatter_mapbox(sweden_coordinates,
                             lat="latitud",
@@ -62,7 +64,11 @@ for results in stats_list:
                             color='nsid',
                             zoom=3,
                             opacity=1,
-                            size='rtt')
+                            size='rtt',
+                            labels={'nsid': 'NSID',
+                                    'rtt': 'RTT',
+                                    'longitud': 'Lon',
+                                    'latitud': 'Lat'})
     fig.update_layout(
         mapbox_style='open-street-map',
         mapbox_layers=[
@@ -80,14 +86,22 @@ for results in stats_list:
                 ]
             }
           ])
-    fig.update_layout(title='RTT values for ' + sweden_coordinates['measurementID'][1] + ' grouped by NSID',
+
+    d = start.strftime("%d %B, %Y") + ' at ' + start.strftime("%H:%M")
+
+    fig.update_layout(title='RTT values for ' + sweden_coordinates['measurementID'][1] + ' grouped by NSID <br />' + str(d),
+                      titlefont={'family': 'Droid Sans Mono',
+                                 'size': 17},
                       showlegend=True,
                       legend=dict(
                                   itemsizing='trace',
                                   tracegroupgap=10,
-                                  valign='top')
+                                  valign='top',
+                                  font={'family': 'Droid Sans Mono',
+                                        'size': 13})
                       )
     fig.show()
 
 fixer()
 meta_fixer()
+draw()

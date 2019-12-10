@@ -4,7 +4,7 @@ Copyright 2019 Nora Odelius odelius.nora@gmail.com
 
 from Static.runNSID import main
 from datetime import datetime, timedelta
-from Static.fix import fixer, meta_fixer
+from Static.fix import fixer, meta_fixer, draw
 import plotly.graph_objs as go
 import argparse
 import numpy as np
@@ -147,3 +147,4 @@ fig.show()
 
 fixer()
 meta_fixer()
+draw()
