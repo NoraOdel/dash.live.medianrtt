@@ -2,6 +2,14 @@
 Copyright 2019 Nora Odelius odelius.nora@gmail.com
 '''
 
+# This program creates a line graph grouped by NSID instead of Nameservers
+# Conditions to be set by the user:
+# 1. Starting time (no default value, condition has to be defined)
+# 2. Nameservers
+# 3. The interval between two fetched measurements
+# 4. The amount of measurements to be fetched, ie number of intervals
+
+
 from Static.runNSID import main
 from datetime import datetime, timedelta
 from Static.fix import fixer, meta_fixer, draw
@@ -9,6 +17,12 @@ import plotly.graph_objs as go
 import argparse
 import numpy as np
 import logging
+import chart_studio.plotly as py
+import chart_studio.tools as cst
+
+username = 'Noodel'
+api_key = 'eOtTbC1LBvxjLyE0JfzA'
+cst.set_credentials_file(username=username, api_key=api_key)
 
 with open('Files/'+'logged_messages.log', 'w') as file:
     file.write('This line was written so the previous lines could be deleted\n\n')
@@ -133,7 +147,7 @@ for y in y_dict:
 if str(first[0]) == str(last).split(' ')[0]:
     title_thing = ' on ' + str(first[0])
 else:
-    title_thing = ' between ' + str(first[0]) + ' and ' + str(last).split(' ')[0]
+    title_thing = ' <br />between ' + str(first[0]) + ' and ' + str(last).split(' ')[0]
 fig.update_layout(title='Median RTT (in milliseconds) based on NSID ' + title_thing,
                   yaxis=dict(
                       ticksuffix='ms'
@@ -143,8 +157,6 @@ fig.update_layout(title='Median RTT (in milliseconds) based on NSID ' + title_th
                       nticks=6,
                       dtick=1
                   ))
-fig.show()
-
+py.plot(fig, filename='Line graph NSID', auto_open=True)
 fixer()
 meta_fixer()
-draw()

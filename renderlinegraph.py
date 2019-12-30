@@ -2,6 +2,13 @@
 Copyright 2019 Nora Odelius odelius.nora@gmail.com
 '''
 
+# This program creates a line graph with user defined conditions
+# Conditions to be set by the user:
+# 1. Starting time (no default value, condition has to be defined)
+# 2. Nameservers
+# 3. The interval between two fetched measurements
+# 4. The amount of measurements to be fetched, ie number of intervals
+
 from datetime import datetime, timedelta
 import plotly.graph_objs as go
 from Static.run import main
@@ -9,6 +16,12 @@ from Static.fix import fixer, meta_fixer, draw
 import argparse
 import numpy as np
 import logging
+import chart_studio.plotly as py
+import chart_studio.tools as cst
+
+username = 'Noodel'
+api_key = 'eOtTbC1LBvxjLyE0JfzA'
+cst.set_credentials_file(username=username, api_key=api_key)
 
 with open('Files/'+'logged_messages.log', 'w') as file:
     file.write('This line was written so the previous lines could be deleted\n\n')
@@ -74,7 +87,6 @@ for num in range(1, len(ms_id)+1):  # the amount of y keys in 'data' should be t
     x_dict['x' + str(num)] = []
     y_dict['y' + str(num)] = []
 
-
 while start != last:  # depending on time and interval
 
     start = start + timedelta(minutes=interval[0])  # interval
@@ -107,10 +119,10 @@ for y in y_dict:
 
 initial = datetime.strptime(first[0], '%Y-%m-%d')
 if str(initial).split(' ')[0] == str(last).split(' ')[0]:
-    title_part = 'on ' + str(initial).split(' ')[0]
+    title_part = 'on <br />' + str(initial).split(' ')[0]
 else:
-    title_part = 'between ' + str(initial).split(' ')[0] + ' and ' + str(last).split(' ')[0]
-fig.update_layout(title='Median RTT (in milliseconds) for .se NameServers ' + title_part,
+    title_part = 'between <br />' + str(initial).split(' ')[0] + ' and ' + str(last).split(' ')[0]
+fig.update_layout(title='Median RTT for .se NameServers ' + title_part,
                   yaxis=dict(
                       ticksuffix='ms'
                   ),
@@ -119,9 +131,9 @@ fig.update_layout(title='Median RTT (in milliseconds) for .se NameServers ' + ti
                       nticks=6,
                       dtick=1
                   ))
-fig.show()
+
+py.plot(fig, filename='Line graph', auto_open=True)
 
 fixer()
 meta_fixer()
 draw()
-

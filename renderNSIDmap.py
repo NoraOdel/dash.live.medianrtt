@@ -2,15 +2,27 @@
 Copyright 2019 Nora Odelius odelius.nora@gmail.com
 '''
 
+# This program creates a scatter-map with markers representing rtt values
+# These values comes from one measurement alone, ie no timeperiod is displayed
+# Conditions to be set by the user:
+# 1. Starting time (no default value, condition has to be defined)
+# 2. Nameservers, if several nameservers are set multiple maps will pop-up in your webbrowser
+
 import pandas as pd
 import plotly.express as px
 import argparse
 from datetime import timedelta, datetime
 from Static.runNSID import main
-from Static.fix import fixer, meta_fixer, draw
+from Static.fix import fixer, meta_fixer
+import chart_studio.plotly as py
+import chart_studio.tools as cst
+
+username = 'Noodel'
+api_key = 'eOtTbC1LBvxjLyE0JfzA'
+cst.set_credentials_file(username=username, api_key=api_key)
 
 my_parser = argparse.ArgumentParser()
-my_parser.add_argument('-start',
+my_parser.add_argument('start',
                        help='Choose time for measurements initiation by typing "-time" followed by '
                             '"yyyy-mm-dd hh:mm:ss", default is current utc time',
                        type=str,
@@ -65,7 +77,7 @@ for results in stats_list:
                             zoom=3,
                             opacity=1,
                             size='rtt',
-                            labels={'nsid': 'NSID',
+                            labels={'nsid': '',
                                     'rtt': 'RTT',
                                     'longitud': 'Lon',
                                     'latitud': 'Lat'})
@@ -90,18 +102,12 @@ for results in stats_list:
     d = start.strftime("%d %B, %Y") + ' at ' + start.strftime("%H:%M")
 
     fig.update_layout(title='RTT values for ' + sweden_coordinates['measurementID'][1] + ' grouped by NSID <br />' + str(d),
-                      titlefont={'family': 'Droid Sans Mono',
-                                 'size': 17},
-                      showlegend=True,
                       legend=dict(
                                   itemsizing='trace',
                                   tracegroupgap=10,
-                                  valign='top',
-                                  font={'family': 'Droid Sans Mono',
-                                        'size': 13})
-                      )
-    fig.show()
+                                  valign='top'
+                      ))
 
+py.plot(fig, filename='Scatter Map', auto_open=True)
 fixer()
 meta_fixer()
-draw()

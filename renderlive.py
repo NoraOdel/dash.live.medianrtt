@@ -2,6 +2,9 @@
 Copyright 2019 Nora Odelius odelius.nora@gmail.com
 '''
 
+# This program creates a live graph for specified nameservers
+# If Error occurs in dash I would recommend ending the program and running fix.py from the Static folder
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -14,6 +17,12 @@ from Static.fix import fixer, meta_fixer
 import argparse
 import numpy as np
 import logging
+import chart_studio.plotly as py
+import chart_studio.tools as cst
+
+username = 'Noodel'
+api_key = 'eOtTbC1LBvxjLyE0JfzA'
+cst.set_credentials_file(username=username, api_key=api_key)
 
 with open('Files/'+'logged_messages.log', 'w') as file:
     file.write('This line was written so the previous lines could be deleted\n\n')

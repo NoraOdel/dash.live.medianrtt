@@ -8,7 +8,7 @@ def fixer():
         if 'atlas-results.csv' in file:
             os.remove('TempFiles/' + file)
 
-    print("Leftover files deleted if any existed\n")
+    print("\nLeftover files deleted if any existed\n")
 
 
 def meta_fixer():
@@ -51,3 +51,6 @@ def draw():
     print(' '*20 + 'Goodbye'.upper())
 
     print('--------------------------------------------------\n')
+
+fixer()
+meta_fixer()

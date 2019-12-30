@@ -5,120 +5,474 @@ DEBUG:urllib3.connectionpool:https://raw.githubusercontent.com:443 "GET /lukes/I
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): ftp.ripe.net:443
 DEBUG:urllib3.connectionpool:https://ftp.ripe.net:443 "GET /ripe/atlas/probes/archive/2019/11/20191121.json.bz2 HTTP/1.1" 200 1111230
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574421000&stop=1574421600&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574421000&stop=1574421600&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574421000&stop=1574421600&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574421600&stop=1574422200&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574421600&stop=1574422200&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574421600&stop=1574422200&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574422200&stop=1574422800&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574422200&stop=1574422800&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574422200&stop=1574422800&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574422800&stop=1574423400&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574422800&stop=1574423400&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574422800&stop=1574423400&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574423400&stop=1574424000&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574423400&stop=1574424000&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574423400&stop=1574424000&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574424000&stop=1574424600&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574424000&stop=1574424600&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574424000&stop=1574424600&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
-WARNING:root:Timeout: 5000
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574424600&stop=1574425200&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574424600&stop=1574425200&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574425200&stop=1574425800&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574425200&stop=1574425800&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574424600&stop=1574425200&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574425800&stop=1574426400&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574425800&stop=1574426400&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574425200&stop=1574425800&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574426400&stop=1574427000&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574426400&stop=1574427000&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574425800&stop=1574426400&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574427000&stop=1574427600&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574427000&stop=1574427600&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574426400&stop=1574427000&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574427600&stop=1574428200&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574427600&stop=1574428200&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574427000&stop=1574427600&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574428200&stop=1574428800&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574428200&stop=1574428800&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574427600&stop=1574428200&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574428800&stop=1574429400&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574428800&stop=1574429400&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574428200&stop=1574428800&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574429400&stop=1574430000&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574429400&stop=1574430000&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574428800&stop=1574429400&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 WARNING:root:Timeout: 5000
+WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574430000&stop=1574430600&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574430000&stop=1574430600&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574429400&stop=1574430000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
 WARNING:root:Unknown error: {'socket': 'connect failed Network is unreachable'}
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574430000&stop=1574430600&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574430600&stop=1574431200&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574430600&stop=1574431200&format=json HTTP/1.1" 200 None
 WARNING:root:Unknown error: {'socket': 'connect failed Network is unreachable'}
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574430600&stop=1574431200&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574431200&stop=1574431800&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574431200&stop=1574431800&format=json HTTP/1.1" 200 None
 WARNING:root:Unknown error: {'socket': 'connect failed Network is unreachable'}
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574431200&stop=1574431800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+WARNING:root:Unknown error: {'socket': 'connect failed Network is unreachable'}
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574431800&stop=1574432400&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574431800&stop=1574432400&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574431800&stop=1574432400&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574432400&stop=1574433000&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265672/results/?start=1574432400&stop=1574433000&format=json HTTP/1.1" 200 None
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
-DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265673/results/?start=1574432400&stop=1574433000&format=json HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574433000&stop=1574433600&format=json HTTP/1.1" 200 None
 WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574433600&stop=1574434200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574434200&stop=1574434800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574434800&stop=1574435400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574435400&stop=1574436000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574436000&stop=1574436600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574436600&stop=1574437200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574437200&stop=1574437800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574437800&stop=1574438400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574438400&stop=1574439000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574439000&stop=1574439600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574439600&stop=1574440200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574440200&stop=1574440800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574440800&stop=1574441400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574441400&stop=1574442000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574442000&stop=1574442600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574442600&stop=1574443200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574443200&stop=1574443800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574443800&stop=1574444400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574444400&stop=1574445000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574445000&stop=1574445600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574445600&stop=1574446200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574446200&stop=1574446800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574446800&stop=1574447400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574447400&stop=1574448000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574448000&stop=1574448600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574448600&stop=1574449200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574449200&stop=1574449800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574449800&stop=1574450400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574450400&stop=1574451000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574451000&stop=1574451600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574451600&stop=1574452200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574452200&stop=1574452800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574452800&stop=1574453400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574453400&stop=1574454000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574454000&stop=1574454600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574454600&stop=1574455200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574455200&stop=1574455800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574455800&stop=1574456400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574456400&stop=1574457000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574457000&stop=1574457600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574457600&stop=1574458200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574458200&stop=1574458800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574458800&stop=1574459400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574459400&stop=1574460000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574460000&stop=1574460600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574460600&stop=1574461200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574461200&stop=1574461800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574461800&stop=1574462400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574462400&stop=1574463000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574463000&stop=1574463600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574463600&stop=1574464200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574464200&stop=1574464800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574464800&stop=1574465400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574465400&stop=1574466000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574466000&stop=1574466600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574466600&stop=1574467200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): raw.githubusercontent.com:443
+DEBUG:urllib3.connectionpool:https://raw.githubusercontent.com:443 "GET /lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv HTTP/1.1" 200 5080
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): ftp.ripe.net:443
+DEBUG:urllib3.connectionpool:https://ftp.ripe.net:443 "GET /ripe/atlas/probes/archive/2019/11/20191122.json.bz2 HTTP/1.1" 200 1111568
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574467200&stop=1574467800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574467800&stop=1574468400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574468400&stop=1574469000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574469000&stop=1574469600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574469600&stop=1574470200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574470200&stop=1574470800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574470800&stop=1574471400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574471400&stop=1574472000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574472000&stop=1574472600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574472600&stop=1574473200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574473200&stop=1574473800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574473800&stop=1574474400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574474400&stop=1574475000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574475000&stop=1574475600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574475600&stop=1574476200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574476200&stop=1574476800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574476800&stop=1574477400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574477400&stop=1574478000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574478000&stop=1574478600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574478600&stop=1574479200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574479200&stop=1574479800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574479800&stop=1574480400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574480400&stop=1574481000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574481000&stop=1574481600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574481600&stop=1574482200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574482200&stop=1574482800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574482800&stop=1574483400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574483400&stop=1574484000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574484000&stop=1574484600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574484600&stop=1574485200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574485200&stop=1574485800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574485800&stop=1574486400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574486400&stop=1574487000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574487000&stop=1574487600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574487600&stop=1574488200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574488200&stop=1574488800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574488800&stop=1574489400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574489400&stop=1574490000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574490000&stop=1574490600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574490600&stop=1574491200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574491200&stop=1574491800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574491800&stop=1574492400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574492400&stop=1574493000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574493000&stop=1574493600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574493600&stop=1574494200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574494200&stop=1574494800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574494800&stop=1574495400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574495400&stop=1574496000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574496000&stop=1574496600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574496600&stop=1574497200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574497200&stop=1574497800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574497800&stop=1574498400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574498400&stop=1574499000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574499000&stop=1574499600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574499600&stop=1574500200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574500200&stop=1574500800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574500800&stop=1574501400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574501400&stop=1574502000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574502000&stop=1574502600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574502600&stop=1574503200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574503200&stop=1574503800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574503800&stop=1574504400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574504400&stop=1574505000&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574505000&stop=1574505600&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574505600&stop=1574506200&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574506200&stop=1574506800&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): atlas.ripe.net:443
+DEBUG:urllib3.connectionpool:https://atlas.ripe.net:443 "GET /api/v2/measurements/23265677/results/?start=1574506800&stop=1574507400&format=json HTTP/1.1" 200 None
+WARNING:root:Timeout: 5000
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.plot.ly:443
+DEBUG:urllib3.connectionpool:https://api.plot.ly:443 "GET /v2/files/lookup?path=Line+graph+NSID_grid HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.plot.ly:443
+DEBUG:urllib3.connectionpool:https://api.plot.ly:443 "DELETE /v2/grids/Noodel:14 HTTP/1.1" 204 0
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.plot.ly:443
+DEBUG:urllib3.connectionpool:https://api.plot.ly:443 "POST /v2/grids HTTP/1.1" 201 2147
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.plot.ly:443
+DEBUG:urllib3.connectionpool:https://api.plot.ly:443 "GET /v2/files/lookup?path=Line+graph+NSID HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.plot.ly:443
+DEBUG:urllib3.connectionpool:https://api.plot.ly:443 "PUT /v2/plots/Noodel:15 HTTP/1.1" 200 None

@@ -2,6 +2,13 @@
 Copyright 2019 Nora Odelius odelius.nora@gmail.com
 '''
 
+# This program creates a Scatter-plot with user defined conditions
+# Conditions to be set by the user:
+# 1. Starting time (no default value, condition has to be defined)
+# 2. Nameservers
+# 3. The interval between two fetched measurements
+# 4. The amount of measurements to be fetched, ie number of intervals
+
 from datetime import datetime, timedelta
 import plotly.graph_objs as go
 from Static.run import main
@@ -9,6 +16,12 @@ from Static.fix import fixer, meta_fixer, draw
 import argparse
 import numpy as np
 import logging
+import chart_studio.plotly as py
+import chart_studio.tools as cst
+
+username = 'Noodel'
+api_key = 'eOtTbC1LBvxjLyE0JfzA'
+cst.set_credentials_file(username=username, api_key=api_key)
 
 with open('Files/'+'logged_messages.log', 'w') as file:
     file.write('This line was written so the previous lines could be deleted\n\n')
@@ -141,7 +154,7 @@ for number in range(1, len(y_dict)+1):
                       xaxis_zeroline=False)
     fig.update_yaxes(range=maximum)
     fig.show()
-
+py.plot(fig, filename='Scatter Plot', auto_open=True)
 fixer()
 meta_fixer()
 draw()
